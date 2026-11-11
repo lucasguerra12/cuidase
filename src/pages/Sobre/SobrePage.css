@@ -13,17 +13,20 @@
   max-width: 72rem;
   margin-inline: auto;
 
-  padding: clamp(1rem, 3vw, 2.25rem)
-           var(--page-gutter) 4rem;
+  padding:
+    clamp(1rem, 3vw, 2.25rem)
+    var(--page-gutter, 1rem)
+    4rem;
 }
 
-/* Cabeçalho */
+/* CABEÇALHO */
 
 .sobre-header {
   display: grid;
-  grid-template-columns: 2.75rem minmax(0, 1fr) 2.75rem;
-  align-items: center;
+  grid-template-columns:
+    2.75rem minmax(0, 1fr) 2.75rem;
 
+  align-items: center;
   gap: 0.5rem;
   margin-bottom: 1.75rem;
 }
@@ -50,17 +53,16 @@
 
   border: none;
   border-radius: 50%;
+
   background: #f6e5df;
   color: #654740;
-
-  transition: background 0.2s;
 }
 
 .sobre-back:hover {
   background: #edd4cd;
 }
 
-/* Abas */
+/* ABAS */
 
 .sobre-tabs {
   display: grid;
@@ -89,7 +91,7 @@
 
 .sobre-tab.ativa {
   background: #986a54;
-  color: white;
+  color: #ffffff;
   font-weight: 600;
 }
 
@@ -97,24 +99,45 @@
   background: #ead8cf;
 }
 
-/* Ilustração */
+/* IMAGEM DO ÚTERO */
 
 .sobre-illustration {
+  display: block;
+
   width: 100%;
+  height: auto;
+
   margin-bottom: 1.75rem;
 
   overflow: hidden;
-  border-radius: var(--radius-card);
+  border-radius: var(--radius-card, 1.25rem);
+
   background: #f3dcd8;
 }
 
 .sobre-illustration img {
   display: block;
+
   width: 100%;
+  max-width: 100%;
   height: auto;
+
+  object-fit: initial;
+  transform: none;
 }
 
-/* Card educativo */
+/* Exibido somente se a imagem falhar */
+
+.sobre-image-error {
+  padding: 2rem 1rem;
+  text-align: center;
+
+  color: #985a63;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* CARD EDUCATIVO */
 
 .sobre-card {
   width: 100%;
@@ -123,10 +146,12 @@
   padding: clamp(1.25rem, 4vw, 3rem);
 
   border: 1px solid #f1e2dc;
-  border-radius: var(--radius-card);
+  border-radius: var(--radius-card, 1.25rem);
+
   background: #fffdfb;
 
-  box-shadow: 0 8px 30px rgba(95,56,54,0.04);
+  box-shadow:
+    0 8px 30px rgba(95, 56, 54, 0.04);
 }
 
 .sobre-card h2 {
@@ -134,11 +159,12 @@
 
   font-size: clamp(1.3rem, 3vw, 2rem);
   line-height: 1.35;
+
   color: #493731;
   overflow-wrap: anywhere;
 }
 
-/* Textos */
+/* PARÁGRAFOS */
 
 .sobre-texto {
   display: flex;
@@ -152,7 +178,7 @@
   color: #68554e;
 }
 
-/* Lista */
+/* LISTAS */
 
 .sobre-lista {
   display: flex;
@@ -178,14 +204,15 @@
   color: #b8797b;
 }
 
-/* Destaque */
+/* DESTAQUE */
 
 .sobre-highlight {
   width: 100%;
+
   display: flex;
   align-items: flex-start;
-
   gap: 0.875rem;
+
   margin-top: 1.75rem;
   padding: clamp(1rem, 3vw, 1.5rem);
 
@@ -208,7 +235,7 @@
   line-height: 1.7;
 }
 
-/* Rodapé */
+/* RODAPÉ */
 
 .sobre-footer {
   width: 100%;
@@ -224,15 +251,17 @@
 
 .sobre-footer > p {
   max-width: 40rem;
+
   font-size: 0.875rem;
   line-height: 1.6;
   color: #7c6860;
 }
 
-/* Referências */
+/* FONTES */
 
 .sobre-fontes {
   width: 100%;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -253,6 +282,7 @@
   max-width: 100%;
 
   color: #a5676e;
+
   font-size: 0.875rem;
   line-height: 1.5;
   text-align: center;
@@ -265,7 +295,7 @@
   flex-shrink: 0;
 }
 
-/* Celulares compactos */
+/* CELULARES COMPACTOS */
 
 @media (max-width: 420px) {
   .sobre-tabs {
@@ -286,11 +316,12 @@
   }
 }
 
-/* Desktop */
+/* DESKTOP */
 
 @media (min-width: 768px) {
   .sobre-header {
-    grid-template-columns: 3rem minmax(0, 1fr) 3rem;
+    grid-template-columns:
+      3rem minmax(0, 1fr) 3rem;
   }
 
   .sobre-header::after,

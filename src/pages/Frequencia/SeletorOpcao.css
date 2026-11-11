@@ -1,0 +1,236 @@
+/* CUIDA-SE | SELETOR DE OPÇÕES REUTILIZÁVEL */
+
+.seletor-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.seletor-label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #513c36;
+}
+
+.seletor-gatilho {
+  width: 100%;
+  min-height: 3.15rem;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 0.95rem;
+  border: 1px solid #e4d4cf;
+  border-radius: 0.85rem;
+  background: #fffaf8;
+  color: #938079;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.45;
+  cursor: pointer;
+  transition: border-color 0.18s, box-shadow 0.18s;
+}
+
+.seletor-gatilho > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.seletor-gatilho--preenchido {
+  color: #392d29;
+  background: #fffdfb;
+}
+
+.seletor-gatilho > svg {
+  flex-shrink: 0;
+  color: #a46c70;
+}
+
+.seletor-gatilho:hover {
+  border-color: #bf9895;
+}
+
+.seletor-gatilho:focus-visible {
+  outline: 3px solid #b8797b;
+  outline-offset: 2px;
+}
+
+.seletor-gatilho[aria-invalid='true'] {
+  border-color: #b86c75;
+}
+
+/* A sobreposição usa portal para não ser cortada por cards ou containers. */
+.seletor-sobreposicao {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0;
+  background: rgba(44, 30, 29, 0.45);
+}
+
+.seletor-dialogo {
+  width: 100%;
+  max-width: 34rem;
+  max-height: min(86dvh, 44rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0.65rem 1rem calc(1.1rem + env(safe-area-inset-bottom));
+  border-radius: 1.5rem 1.5rem 0 0;
+  background: #fffaf7;
+  box-shadow: 0 -10px 50px rgba(35, 20, 20, 0.2);
+  animation: seletor-entrar 0.18s ease-out both;
+}
+
+.seletor-alca {
+  width: 2.5rem;
+  height: 0.28rem;
+  margin: 0 auto 1rem;
+  border-radius: 999px;
+  background: #dbc8c1;
+}
+
+.seletor-cabecalho {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+
+.seletor-microtitulo {
+  margin-bottom: 0.35rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: #a56b73;
+}
+
+.seletor-cabecalho h2 {
+  font-size: clamp(1.1rem, 4.5vw, 1.45rem);
+  line-height: 1.35;
+  color: #513c36;
+}
+
+.seletor-fechar {
+  flex-shrink: 0;
+  width: 2.65rem;
+  height: 2.65rem;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: 50%;
+  background: #f2e3de;
+  color: #72524b;
+}
+
+.seletor-opcoes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.seletor-opcao {
+  width: 100%;
+  min-height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid #ecddd6;
+  border-radius: 1rem;
+  background: #fffdfb;
+  color: #53413b;
+  text-align: left;
+  font-size: 0.96rem;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: border-color 0.18s, background 0.18s;
+}
+
+.seletor-opcao:hover {
+  border-color: #ce9fa2;
+  background: #fff2ef;
+}
+
+.seletor-opcao--ativa {
+  border-color: #b8797b;
+  background: #f8e9e7;
+  color: #75474d;
+  font-weight: 600;
+}
+
+.seletor-opcao-texto {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.seletor-indicador {
+  width: 1.4rem;
+  height: 1.4rem;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border: 1.5px solid #ccaca8;
+  border-radius: 50%;
+  color: #fff;
+}
+
+.seletor-opcao--ativa .seletor-indicador {
+  border-color: #a96970;
+  background: #a96970;
+}
+
+.seletor-ajuda {
+  margin-top: 1rem;
+  color: #88736c;
+  text-align: center;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.seletor-fechar:focus-visible,
+.seletor-opcao:focus-visible {
+  outline: 3px solid #b8797b;
+  outline-offset: 2px;
+}
+
+@keyframes seletor-entrar {
+  from { opacity: 0; transform: translateY(1rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (min-width: 768px) {
+  .seletor-sobreposicao {
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .seletor-dialogo {
+    max-height: min(80dvh, 42rem);
+    padding: 1.25rem 1.4rem 1.5rem;
+    border-radius: 1.4rem;
+    box-shadow: 0 20px 60px rgba(35, 20, 20, 0.22);
+  }
+
+  .seletor-alca {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seletor-dialogo {
+    animation: none;
+  }
+
+  .seletor-opcao,
+  .seletor-gatilho {
+    transition: none;
+  }
+}

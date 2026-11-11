@@ -1,5 +1,9 @@
 
-import { useNavigate, useParams, Link } from 'react-router-dom';
+import {
+  useNavigate,
+  useParams,
+  Link,
+} from 'react-router-dom';
 
 import {
   ArrowLeft,
@@ -31,7 +35,10 @@ const icones = [
 
 export default function ExamesPage() {
   const navigate = useNavigate();
-  const { assunto } = useParams<{ assunto: string }>();
+
+  const { assunto } = useParams<{
+    assunto: string;
+  }>();
 
   const conteudo = assunto
     ? conteudosExames[assunto]
@@ -45,13 +52,15 @@ export default function ExamesPage() {
     <main className="exames-page">
       <div className="exames-container">
 
-        {/* Cabeçalho */}
+        {/* CABEÇALHO */}
         <header className="exames-header">
           <button
             type="button"
             className="exames-back"
             onClick={() =>
-              navigate(assunto ? '/exames' : '/inicio')
+              navigate(
+                assunto ? '/exames' : '/inicio'
+              )
             }
             aria-label="Voltar"
           >
@@ -64,10 +73,13 @@ export default function ExamesPage() {
               : 'Exames e rastreamento'}
           </h1>
 
-          <span className="exames-header-spacer" />
+          <span
+            className="exames-header-spacer"
+            aria-hidden="true"
+          />
         </header>
 
-        {/* Menu de exames */}
+        {/* MENU PRINCIPAL */}
         {!assunto && (
           <>
             <section className="exames-banner">
@@ -99,7 +111,10 @@ export default function ExamesPage() {
                     className="exames-option"
                   >
                     <span className="exames-option-icon">
-                      <Icon size={30} strokeWidth={1.5} />
+                      <Icon
+                        size={30}
+                        strokeWidth={1.5}
+                      />
                     </span>
 
                     <span className="exames-option-info">
@@ -119,13 +134,28 @@ export default function ExamesPage() {
           </>
         )}
 
-        {/* Conteúdo educativo disponível */}
+        {/* CONTEÚDO EDUCATIVO */}
         {assunto && conteudo && (
           <article className="exames-content-card">
+
             <div className="exames-content-heading">
               <BookOpen size={27} />
+
               <h2>{conteudo.titulo}</h2>
             </div>
+
+            {/* IMAGEM OPCIONAL */}
+            {conteudo.imagem && (
+              <figure className="exames-detail-image">
+                <img
+                  src={conteudo.imagem}
+                  alt={
+                    conteudo.imagemAlt ??
+                    'Ilustração educativa'
+                  }
+                />
+              </figure>
+            )}
 
             <p className="exames-intro">
               {conteudo.introducao}
@@ -134,8 +164,8 @@ export default function ExamesPage() {
             <div className="exames-sections">
               {conteudo.secoes.map((secao) => (
                 <section
-                  className="exames-info-section"
                   key={secao.titulo}
+                  className="exames-info-section"
                 >
                   <h3>{secao.titulo}</h3>
                   <p>{secao.texto}</p>
@@ -168,13 +198,17 @@ export default function ExamesPage() {
                 </a>
               ))}
             </footer>
+
           </article>
         )}
 
-        {/* Conteúdos que faremos depois */}
+        {/* CONTEÚDO AINDA NÃO DESENVOLVIDO */}
         {assunto && !conteudo && (
           <section className="exames-content-card exames-pendente">
-            <BookOpen size={48} strokeWidth={1.4} />
+            <BookOpen
+              size={48}
+              strokeWidth={1.4}
+            />
 
             <h2>
               {exameSelecionado?.titulo ??
@@ -186,7 +220,10 @@ export default function ExamesPage() {
               educativo para o Cuida-se.
             </p>
 
-            <Link to="/exames" className="exames-return">
+            <Link
+              to="/exames"
+              className="exames-return"
+            >
               Voltar aos exames
             </Link>
           </section>
@@ -196,4 +233,3 @@ export default function ExamesPage() {
     </main>
   );
 }
-    

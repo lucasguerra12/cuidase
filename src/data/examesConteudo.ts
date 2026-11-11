@@ -1,4 +1,37 @@
 
+/* ==========================================
+   CARREGAMENTO DAS IMAGENS
+========================================== */
+
+/* Imagem do Papanicolau */
+
+const imagensPapanicolau = import.meta.glob(
+  '../assets/images/papanicolau-ilustracao.{jpeg,jpg,png,webp}',
+  {
+    eager: true,
+    query: '?url',
+    import: 'default',
+  }
+) as Record<string, string>;
+
+const imagemPapanicolau =
+  Object.values(imagensPapanicolau)[0];
+
+/* Imagem do DNA-HPV */
+
+const imagensDNA = import.meta.glob(
+  '../assets/images/dna-hpv-ilustracao.{jpeg,jpg,png,webp}',
+  {
+    eager: true,
+    query: '?url',
+    import: 'default',
+  }
+) as Record<string, string>;
+
+const imagemDNAHPV = Object.values(imagensDNA)[0];
+
+/* TIPOS */
+
 export type Exame = {
   slug: string;
   titulo: string;
@@ -14,13 +47,21 @@ export type SecaoEducativa = {
 export type ConteudoExame = {
   titulo: string;
   introducao: string;
+
+  imagem?: string;
+  imagemAlt?: string;
+
   secoes: SecaoEducativa[];
+
   destaque: string;
+
   fontes: {
     nome: string;
     url: string;
   }[];
 };
+
+/* OPÇÕES DO MENU */
 
 export const exames: Exame[] = [
   {
@@ -53,12 +94,22 @@ export const exames: Exame[] = [
   },
 ];
 
+/* CONTEÚDOS EDUCATIVOS */
+
 export const conteudosExames: Record<
   string,
   ConteudoExame
 > = {
+
+  /* PAPANICOLAU */
+
   papanicolau: {
     titulo: 'Conheça o exame Papanicolau',
+
+    imagem: imagemPapanicolau,
+
+    imagemAlt:
+    'Ilustração educativa da coleta de células do colo do útero durante o exame Papanicolau.',
 
     introducao:
       'O Papanicolau, também chamado de exame citopatológico do colo do útero, é utilizado para identificar alterações nas células que podem indicar lesões precursoras do câncer.',
@@ -111,6 +162,81 @@ export const conteudosExames: Record<
       {
         nome: 'INCA — Informações para a população',
         url: 'https://www.gov.br/inca/pt-br/assuntos/cancer/tipos/colo-do-utero/versao-para-populacao/',
+      },
+    ],
+  },
+
+  /* TESTE DE DNA-HPV */
+
+  'dna-hpv': {
+    titulo: 'Entenda o teste de DNA-HPV',
+
+    introducao:
+      'O teste DNA-HPV é um exame molecular que identifica a presença de material genético de tipos do papilomavírus humano (HPV) associados a maior risco de câncer do colo do útero. Ele é utilizado para o rastreamento, mesmo quando a pessoa não apresenta sintomas.',
+
+    imagem: imagemDNAHPV,
+
+    imagemAlt:
+      'Ilustração educativa de uma molécula de DNA, material de coleta e representações simbólicas do HPV.',
+
+    secoes: [
+      {
+        titulo: 'Para que serve?',
+        texto:
+          'O teste procura infecções por tipos oncogênicos do HPV, ou seja, tipos associados ao desenvolvimento do câncer do colo do útero. Ele pode identificar essas infecções antes que apareçam alterações celulares.',
+      },
+      {
+        titulo: 'Como funciona?',
+        texto:
+          'Uma amostra é coletada e encaminhada para análise laboratorial. O teste utiliza técnicas moleculares para identificar o DNA de tipos de HPV considerados de alto risco.',
+      },
+      {
+        titulo: 'Como é feita a coleta?',
+        texto:
+          'A coleta pode ser realizada por profissionais de saúde nas Unidades Básicas de Saúde. Em situações previstas nos protocolos, também pode ser utilizada a autocoleta, com orientações da equipe de saúde.',
+      },
+      {
+        titulo: 'Qual a diferença para o Papanicolau?',
+        texto:
+          'O Papanicolau examina as células do colo do útero em busca de alterações. Já o DNA-HPV procura a presença de tipos do vírus associados ao desenvolvimento dessas alterações. O teste molecular apresenta maior sensibilidade para o rastreamento.',
+      },
+      {
+        titulo: 'O que significa um resultado negativo?',
+        texto:
+          'Significa que o teste não detectou os tipos de HPV oncogênicos pesquisados na amostra. Para pessoas de risco habitual, as recomendações atuais permitem repetir o rastreamento em cinco anos após resultado negativo, conforme os critérios do programa.',
+      },
+      {
+        titulo: 'O que significa um resultado positivo?',
+        texto:
+          'Significa que foi detectado um tipo de HPV oncogênico. Isso não é um diagnóstico de câncer. A equipe de saúde avalia quais medidas de acompanhamento são necessárias, levando em conta o tipo viral identificado, outros exames e as diretrizes vigentes.',
+      },
+      {
+        titulo: 'Onde posso realizar o teste?',
+        texto:
+          'O teste DNA-HPV está sendo implantado gradualmente no SUS. A disponibilidade pode variar entre municípios e unidades de saúde. Procure sua UBS para saber qual método de rastreamento está disponível.',
+      },
+      {
+        titulo: 'Quem tomou a vacina precisa fazer o exame?',
+        texto:
+          'Sim. A vacinação contra o HPV é uma medida importante de prevenção, mas não substitui o rastreamento recomendado para a população elegível.',
+      },
+    ],
+
+    destaque:
+      'Resultado positivo para HPV não significa câncer. Não interprete o resultado isoladamente: procure a equipe de saúde para receber orientações sobre o acompanhamento adequado.',
+
+    fontes: [
+      {
+        nome: 'INCA — Detecção precoce',
+        url: 'https://www.gov.br/inca/pt-br/assuntos/gestor-e-profissional-de-saude/controle-do-cancer-do-colo-do-utero/acoes/deteccao-precoce',
+      },
+      {
+        nome: 'Ministério da Saúde — HPV',
+        url: 'https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/h/hpv',
+      },
+      {
+        nome: 'Ministério da Saúde — Diretrizes Parte II',
+        url: 'https://www.gov.br/saude/pt-br/assuntos/pcdt/c/cancer-de-colo-do-utero-parte-II/view',
       },
     ],
   },
