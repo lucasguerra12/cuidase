@@ -1,0 +1,348 @@
+
+.home-page {
+  min-height: 100dvh;
+  background: #fff7f2;
+  color: #342b28;
+  padding-bottom: 100px;
+}
+
+.home-container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+/* Cabeçalho */
+
+.home-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.home-header h1 {
+  font-size: clamp(23px, 3vw, 32px);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.home-header p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #594b45;
+}
+
+.notification-button {
+  background: transparent;
+  border: none;
+  color: #45342e;
+  cursor: pointer;
+  padding: 8px;
+}
+
+/* Banner */
+
+.home-banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 235px;
+  overflow: hidden;
+  border-radius: 19px;
+  margin-bottom: 30px;
+
+  background: linear-gradient(
+    110deg,
+    #f1dbcc 0%,
+    #f4e3d8 50%,
+    #d7ac9b 100%
+  );
+}
+
+.home-banner::after {
+  content: '';
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  right: -60px;
+  bottom: -100px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.banner-content {
+  position: relative;
+  z-index: 1;
+  padding: 28px;
+}
+
+.banner-content h2 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(25px, 3vw, 39px);
+  font-weight: 400;
+  line-height: 1.1;
+  color: #4b362e;
+  margin-bottom: 20px;
+}
+
+.banner-button {
+  border: none;
+  border-radius: 24px;
+  background: #b8797b;
+  color: white;
+  padding: 11px 27px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.banner-button:hover {
+  background: #a9676a;
+}
+
+/* Acesso rápido */
+
+.quick-section {
+  margin-bottom: 24px;
+}
+
+.quick-section > h2 {
+  font-size: 19px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.quick-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.quick-card {
+  min-width: 0;
+  min-height: 125px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+
+  padding: 14px 8px;
+  background: #f4dfdc;
+  border: none;
+  border-radius: 17px;
+  color: #673f41;
+  cursor: pointer;
+
+  transition: transform 0.2s, background 0.2s;
+}
+
+.quick-card:hover {
+  background: #edcfcc;
+  transform: translateY(-3px);
+}
+
+.quick-icon {
+  width: 51px;
+  height: 51px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  background: #f7e9e5;
+  color: #ad6c72;
+}
+
+.quick-label {
+  font-size: 13px;
+  line-height: 1.25;
+  text-align: center;
+}
+
+/* Acompanhamento */
+
+.health-card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+
+  background: #f8ebe6;
+  border: 1px solid #f0dfda;
+  border-radius: 18px;
+  text-align: left;
+  color: #423631;
+  cursor: pointer;
+}
+
+.health-icon {
+  flex-shrink: 0;
+  width: 61px;
+  height: 61px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+  background: #efd5d4;
+  color: #b16b72;
+}
+
+.health-content {
+  flex: 1;
+}
+
+.health-content h3 {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.health-content p {
+  font-size: 13px;
+  line-height: 1.4;
+  color: #74625d;
+}
+
+/* Navegação inferior */
+
+.bottom-navigation {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+
+  background: #fffaf7;
+  border-top: 1px solid #eaded8;
+}
+
+.bottom-navigation-content {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  min-height: 70px;
+  padding: 9px 4px;
+  border: none;
+  background: transparent;
+  color: #857a74;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.nav-item.active {
+  color: #a45f65;
+  font-weight: 700;
+}
+
+/* Aviso temporário */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(39, 27, 24, 0.35);
+}
+
+.home-modal {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  padding: 36px 24px;
+  border-radius: 24px;
+  background: #fffaf7;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.home-modal h2 {
+  font-size: 21px;
+  margin: 15px 0 10px;
+}
+
+.home-modal p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #76645d;
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.modal-button {
+  margin-top: 22px;
+  padding: 11px 32px;
+  border: none;
+  border-radius: 20px;
+  background: #b8797b;
+  color: white;
+  cursor: pointer;
+}
+
+/* Celulares */
+
+@media (max-width: 600px) {
+  .home-container {
+    padding: 28px 17px;
+  }
+
+  .home-header {
+    margin-bottom: 22px;
+  }
+
+  .home-banner {
+    min-height: 175px;
+    margin-bottom: 24px;
+  }
+
+  .banner-content {
+    padding: 22px;
+  }
+
+  .banner-content h2 {
+    font-size: 27px;
+  }
+
+  .quick-grid {
+    gap: 8px;
+  }
+
+  .quick-card {
+    min-height: 110px;
+    padding: 10px 4px;
+  }
+
+  .quick-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .quick-label {
+    font-size: 11px;
+  }
+
+  .nav-item {
+    font-size: 11px;
+  }
+}
