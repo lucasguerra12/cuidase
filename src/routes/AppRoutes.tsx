@@ -10,6 +10,8 @@ import VacinaPage from '../pages/Vacina/VacinaPage';
 import DuvidasPage from '../pages/Duvidas/DuvidasPage';
 import AgendaPage from '../pages/Agenda/AgendaPage';
 import ChatPage from '../pages/Chat/ChatPage';
+import ConteudoPage from '../pages/Conteudo/ConteudoPage';
+import PerfilPage from '../pages/Perfil/PerfilPage';
 
 export default function AppRoutes() {
   return (
@@ -20,6 +22,8 @@ export default function AppRoutes() {
       <Route path="/agenda" element={<AgendaPage />} />
       <Route path="/chat" element={<ChatPage />} />
       <Route path="/chat/:contatoId" element={<ChatPage/>} />
+      <Route path="/conteudo" element={<ConteudoPage />} />
+      <Route path="/perfil" element={<PerfilPage />} />
       <Route path="/sobre" element={<SobrePage />} />
       <Route path="/vacina-hpv" element={<VacinaPage />} />
       <Route path="/duvidas" element={<DuvidasPage />} />
