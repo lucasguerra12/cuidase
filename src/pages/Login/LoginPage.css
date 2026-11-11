@@ -1,4 +1,6 @@
 
+/* CUIDA-SE | LOGIN */
+
 .login-screen {
   width: 100%;
   min-height: 100vh;
@@ -8,26 +10,19 @@
   align-items: center;
   justify-content: center;
 
-  padding: 32px 24px;
+  padding: clamp(1rem, 4vw, 3rem);
 
-  background-color: #fff4ed;
-  background-image: url('../../assets/images/fundologin.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: #fff4ed
+    url('../../assets/images/fundologin.png')
+    center / cover no-repeat;
 }
 
 .login-panel {
   width: 100%;
-  max-width: 420px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  padding: 24px 0;
-  background: transparent;
+  max-width: 26.25rem;
+  padding-block: 1rem;
 }
+
 /* Identidade visual */
 
 .login-brand {
@@ -35,29 +30,30 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-bottom: 85px;
+
+  margin-bottom: clamp(1.5rem, 7dvh, 5rem);
 }
 
 .login-logo {
-  width: 105px;
-  height: 105px;
+  width: clamp(4.75rem, 13vw, 6.5rem);
+  height: auto;
+  margin-bottom: 0.75rem;
   color: #b3916f;
-  margin-bottom: 12px;
 }
 
 .login-brand h1 {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(40px, 11vw, 52px);
+  font-family: Georgia, serif;
+  font-size: clamp(2.4rem, 9vw, 3.25rem);
   font-weight: 400;
-  letter-spacing: -1.5px;
-  color: #574438;
+  letter-spacing: -0.05em;
   line-height: 1.1;
+  color: #574438;
 }
 
 .login-brand p {
-  font-size: 14px;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
   color: #574438;
-  margin-top: 8px;
 }
 
 /* Formulário */
@@ -65,22 +61,23 @@
 .login-form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 1rem;
 }
 
 .login-input {
+  width: 100%;
+  min-height: 3.5rem;
+
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 0.75rem;
 
-  width: 100%;
-  height: 56px;
-  padding: 0 16px;
+  padding-inline: 1rem;
 
-  background: rgba(255, 255, 255, 0.82);
   border: 1px solid #e8d9d0;
-  border-radius: 16px;
+  border-radius: 1rem;
 
+  background: rgba(255, 255, 255, 0.85);
   color: #887d76;
 }
 
@@ -89,15 +86,19 @@
   box-shadow: 0 0 0 3px rgba(183, 123, 123, 0.12);
 }
 
+.login-input > svg {
+  flex-shrink: 0;
+}
+
 .login-input input {
   flex: 1;
   min-width: 0;
+
   border: none;
   outline: none;
   background: transparent;
 
-  font-family: inherit;
-  font-size: 14px;
+  font-size: 1rem;
   color: #453a35;
 }
 
@@ -106,44 +107,42 @@
 }
 
 .toggle-password {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+
+  min-width: 2rem;
+  min-height: 2.75rem;
 
   border: none;
   background: transparent;
   color: #887d76;
-  cursor: pointer;
 }
-
-/* Mensagem de validação */
 
 .login-error {
   color: #a34d56;
-  font-size: 13px;
+  font-size: 0.875rem;
   text-align: center;
 }
 
-/* Botão principal */
+/* Botão */
 
 .login-button {
   width: 100%;
-  height: 52px;
-  margin-top: 20px;
+  min-height: 3.25rem;
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem;
 
   border: none;
-  border-radius: 18px;
+  border-radius: 1.125rem;
 
   background: #b8797b;
-  color: #ffffff;
+  color: white;
 
-  font-family: inherit;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
 
-  cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: background 0.2s, transform 0.2s;
 }
 
 .login-button:hover {
@@ -154,46 +153,22 @@
   transform: scale(0.98);
 }
 
-/* Visualização no computador */
+/* Telas com pouca altura */
 
-
-/* Tablets e celulares */
-
-@media (max-width: 600px) {
+@media (max-height: 680px) {
   .login-screen {
-    padding: 24px;
-    background-position: center;
-  }
-
-  .login-panel {
-    max-width: 100%;
-    padding: 20px 0;
+    align-items: flex-start;
   }
 
   .login-brand {
-    margin-bottom: 65px;
-  }
-
-  .login-brand h1 {
-    font-size: 44px;
-  }
-}
-
-/* Celulares com pouca altura */
-
-@media (max-height: 700px) {
-  .login-screen {
-    padding-top: 24px;
-    padding-bottom: 24px;
-  }
-
-  .login-brand {
-    margin-bottom: 30px;
+    margin-bottom: 1.5rem;
   }
 
   .login-logo {
-    width: 80px;
-    height: 80px;
+    width: 4.5rem;
+  }
+
+  .login-form {
+    gap: 0.75rem;
   }
 }
-

@@ -1,7 +1,5 @@
 
-/* ======================================
-   CUIDA-SE | EXAMES E RASTREAMENTO
-====================================== */
+/* CUIDA-SE | EXAMES E RASTREAMENTO */
 
 .exames-page {
   width: 100%;
@@ -12,30 +10,33 @@
 
 .exames-container {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 32px 24px 70px;
+  max-width: 72rem;
+  margin-inline: auto;
+
+  padding: clamp(1rem, 3vw, 2rem)
+           var(--page-gutter) 4rem;
 }
 
 /* Cabeçalho */
 
 .exames-header {
   display: grid;
-  grid-template-columns: 48px minmax(0, 1fr) 48px;
+  grid-template-columns: 2.75rem minmax(0, 1fr) 2.75rem;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 28px;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
 }
 
 .exames-header h1 {
-  font-size: clamp(22px, 3vw, 30px);
-  text-align: center;
+  font-size: clamp(1.2rem, 3vw, 1.875rem);
   line-height: 1.3;
+  text-align: center;
+  overflow-wrap: anywhere;
 }
 
 .exames-back {
-  width: 48px;
-  height: 48px;
+  width: 2.75rem;
+  height: 2.75rem;
 
   display: grid;
   place-items: center;
@@ -44,29 +45,27 @@
   border-radius: 50%;
   background: #f6e5df;
   color: #654740;
-  cursor: pointer;
 }
 
 .exames-header-spacer {
-  width: 48px;
+  width: 2.75rem;
 }
 
 /* Banner */
 
 .exames-banner {
   width: 100%;
-  height: clamp(240px, 30vw, 380px);
+  aspect-ratio: 16 / 9;
+  max-height: 23.75rem;
 
   overflow: hidden;
-  border-radius: 25px;
+  border-radius: var(--radius-card);
   background: #f1d6d2;
 }
 
 .exames-banner img {
-  display: block;
   width: 100%;
   height: 100%;
-
   object-fit: cover;
   object-position: center;
 }
@@ -74,158 +73,171 @@
 /* Introdução */
 
 .exames-description {
-  margin: 28px 0 25px;
+  margin: 1.75rem 0;
 }
 
 .exames-description h2 {
-  font-size: clamp(22px, 2.5vw, 28px);
-  margin-bottom: 8px;
+  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+  margin-bottom: 0.5rem;
 }
 
 .exames-description p {
-  font-size: 16px;
-  color: #78645d;
+  font-size: clamp(0.9rem, 1.4vw, 1rem);
   line-height: 1.6;
+  color: #78645d;
 }
 
-/* Lista dos exames */
+/* Cards */
 
 .exames-list {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 0.9375rem;
 }
 
 .exames-option {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+  width: 100%;
+  min-width: 0;
+  min-height: 7rem;
 
-  min-height: 125px;
-  padding: 22px 24px;
+  display: grid;
+  grid-template-columns:
+    clamp(2.75rem, 11vw, 4.75rem)
+    minmax(0, 1fr)
+    1.25rem;
+
+  align-items: center;
+  gap: clamp(0.5rem, 2vw, 1.25rem);
+
+  padding: clamp(0.75rem, 2vw, 1.5rem);
 
   border: 1px solid #f0e0db;
-  border-radius: 22px;
+  border-radius: var(--radius-card);
 
   background: #fffdfb;
   color: #423631;
   text-decoration: none;
 
-  transition:
-    background 0.2s,
-    transform 0.2s,
-    box-shadow 0.2s;
+  transition: background 0.2s, transform 0.2s;
 }
 
 .exames-option:hover {
   background: #fdf0eb;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(95, 56, 54, 0.07);
 }
 
 .exames-option-icon {
-  flex-shrink: 0;
-
-  width: 76px;
-  height: 76px;
+  width: 100%;
+  aspect-ratio: 1;
 
   display: grid;
   place-items: center;
 
-  border-radius: 20px;
+  border-radius: 1rem;
   background: #f7e6e3;
   color: #b16b72;
 }
 
+.exames-option-icon svg {
+  width: 50%;
+  height: 50%;
+}
+
 .exames-option-info {
-  flex: 1;
   min-width: 0;
 
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 0.35rem;
+
+  overflow-wrap: anywhere;
 }
 
 .exames-option-info strong {
-  font-size: 19px;
+  font-size: clamp(0.95rem, 1.7vw, 1.1875rem);
   line-height: 1.3;
 }
 
 .exames-option-info small {
-  font-size: 14px;
+  font-size: clamp(0.75rem, 1.3vw, 0.875rem);
   font-weight: 600;
   color: #a46c70;
 }
 
 .exames-option-info > span {
-  font-size: 15px;
-  color: #76645d;
+  font-size: clamp(0.75rem, 1.4vw, 0.9375rem);
   line-height: 1.5;
+  color: #76645d;
 }
 
 .exames-chevron {
+  width: 1.25rem;
   flex-shrink: 0;
   color: #8f746b;
 }
 
-/* ======================================
-   PÁGINA DE CONTEÚDO
-====================================== */
+/* Conteúdo educativo */
 
 .exames-content-card {
   width: 100%;
-  padding: clamp(24px, 4vw, 48px);
+  padding: clamp(1.25rem, 4vw, 3rem);
 
   border: 1px solid #f0e0db;
-  border-radius: 25px;
-
+  border-radius: var(--radius-card);
   background: #fffdfb;
 }
 
 .exames-content-heading {
   display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 22px;
+  align-items: flex-start;
+  gap: 0.875rem;
+  margin-bottom: 1.375rem;
   color: #a66e73;
 }
 
+.exames-content-heading svg {
+  flex-shrink: 0;
+}
+
 .exames-content-heading h2 {
-  font-size: clamp(22px, 3vw, 32px);
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  line-height: 1.3;
   color: #493731;
+  overflow-wrap: anywhere;
 }
 
 .exames-intro {
-  font-size: 17px;
+  font-size: clamp(0.9rem, 1.4vw, 1.0625rem);
   line-height: 1.8;
   color: #68554e;
-  margin-bottom: 30px;
+  margin-bottom: 1.875rem;
 }
 
-/* Seções educativas */
+/* Seções */
 
 .exames-sections {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1rem;
 }
 
 .exames-info-section {
-  padding: 24px;
-  border-radius: 18px;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border-radius: 1.125rem;
   background: #fcf3ef;
 }
 
 .exames-info-section h3 {
-  font-size: 19px;
+  font-size: clamp(1rem, 1.7vw, 1.1875rem);
+  margin-bottom: 0.75rem;
   color: #594039;
-  margin-bottom: 12px;
 }
 
 .exames-info-section p {
-  font-size: 16px;
+  font-size: clamp(0.875rem, 1.4vw, 1rem);
   line-height: 1.75;
   color: #6d5952;
+  overflow-wrap: anywhere;
 }
 
 /* Destaque */
@@ -233,12 +245,12 @@
 .exames-highlight {
   display: flex;
   align-items: flex-start;
-  gap: 14px;
+  gap: 0.875rem;
 
-  padding: 22px;
-  margin-top: 28px;
+  margin-top: 1.75rem;
+  padding: clamp(1rem, 3vw, 1.375rem);
 
-  border-radius: 18px;
+  border-radius: 1.125rem;
   background: #f8e6e3;
   color: #985a63;
 }
@@ -248,57 +260,65 @@
 }
 
 .exames-highlight p {
-  font-size: 15px;
+  min-width: 0;
+  font-size: 0.9375rem;
   line-height: 1.6;
+  overflow-wrap: anywhere;
 }
 
-/* Fontes */
+/* Referências */
 
 .exames-footer {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0.75rem;
 
-  margin-top: 30px;
-  padding-top: 24px;
+  margin-top: 1.875rem;
+  padding-top: 1.5rem;
 
   border-top: 1px solid #f0e0db;
 }
 
 .exames-footer p {
-  font-size: 13px;
+  font-size: 0.875rem;
   line-height: 1.6;
   color: #7c6860;
 }
 
 .exames-footer h3 {
-  font-size: 16px;
-  margin-top: 8px;
+  font-size: 1rem;
+  margin-top: 0.5rem;
 }
 
 .exames-footer a {
   display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  align-items: flex-start;
+  gap: 0.5rem;
 
   width: fit-content;
-  color: #a5676e;
+  max-width: 100%;
 
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 1.5;
+  color: #a5676e;
   text-decoration: underline;
+  overflow-wrap: anywhere;
 }
 
-/* Conteúdo pendente */
+.exames-footer a svg {
+  flex-shrink: 0;
+}
+
+/* Conteúdo futuro */
 
 .exames-pendente {
-  min-height: 350px;
+  min-height: 20rem;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 18px;
+  gap: 1.125rem;
 
   text-align: center;
 }
@@ -308,180 +328,48 @@
 }
 
 .exames-pendente h2 {
-  font-size: 25px;
+  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
 }
 
 .exames-pendente p {
-  color: #76645d;
+  font-size: 0.95rem;
   line-height: 1.6;
+  color: #76645d;
 }
 
 .exames-return {
-  padding: 13px 24px;
-  border-radius: 25px;
+  display: inline-block;
+  padding: 0.85rem 1.5rem;
 
+  border-radius: 1.5rem;
   background: #b8797b;
   color: white;
   text-decoration: none;
 }
 
-/* ======================================
-   RESPONSIVIDADE
-====================================== */
-
-@media (max-width: 600px) {
-  .exames-container {
-    padding: 22px 16px 45px;
-  }
-
-  .exames-header {
-    grid-template-columns: 42px minmax(0, 1fr) 42px;
-    gap: 8px;
-    margin-bottom: 23px;
-  }
-
-  .exames-header h1 {
-    font-size: 21px;
-  }
-
-  .exames-back,
-  .exames-header-spacer {
-    width: 42px;
-    height: 42px;
-  }
-
-  .exames-banner {
-    height: 195px;
-    border-radius: 20px;
-  }
-
-  .exames-description {
-    margin: 23px 0 20px;
-  }
-
-  .exames-description h2 {
-    font-size: 21px;
-  }
-
-  .exames-description p {
-    font-size: 14px;
-  }
-
-  .exames-list {
-    gap: 12px;
-  }
-
-  .exames-option {
-    min-height: 112px;
-    padding: 14px 12px;
-    gap: 12px;
-    border-radius: 17px;
-  }
-
-  .exames-option-icon {
-    width: 54px;
-    height: 54px;
-    border-radius: 14px;
-  }
-
-  .exames-option-icon svg {
-    width: 26px;
-    height: 26px;
-  }
-
-  .exames-option-info strong {
-    font-size: 15px;
-  }
-
-  .exames-option-info small {
-    font-size: 12px;
-  }
-
-  .exames-option-info > span {
-    font-size: 12px;
-    line-height: 1.4;
-  }
-
-  .exames-chevron {
-    width: 18px;
-  }
-
-  .exames-content-card {
-    padding: 22px 17px;
-    border-radius: 20px;
-  }
-
-  .exames-content-heading h2 {
-    font-size: 21px;
-  }
-
-  .exames-intro {
-    font-size: 14px;
-    line-height: 1.7;
-  }
-
-  .exames-sections {
-    gap: 13px;
-  }
-
-  .exames-info-section {
-    padding: 18px 15px;
-  }
-
-  .exames-info-section h3 {
-    font-size: 16px;
-  }
-
-  .exames-info-section p {
-    font-size: 14px;
-    line-height: 1.7;
-  }
-
-  .exames-highlight {
-    padding: 17px 14px;
-  }
-
-  .exames-highlight p {
-    font-size: 13px;
-  }
-}
+/* Celulares estreitos */
 
 @media (max-width: 360px) {
-  .exames-container {
-    padding-left: 12px;
-    padding-right: 12px;
+  .exames-header {
+    gap: 0.25rem;
   }
 
   .exames-option {
-    gap: 9px;
-  }
+    grid-template-columns:
+      2.75rem minmax(0, 1fr) 1rem;
 
-  .exames-option-icon {
-    width: 46px;
-    height: 46px;
-  }
-
-  .exames-option-info > span {
-    font-size: 11px;
+    gap: 0.5rem;
   }
 }
 
-/* Acessibilidade */
+/* Desktop */
 
-.exames-option:focus-visible,
-.exames-back:focus-visible,
-.exames-return:focus-visible {
-  outline: 3px solid #a5676e;
-  outline-offset: 3px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .exames-option,
-  .exames-back {
-    transition: none;
+@media (min-width: 768px) {
+  .exames-banner {
+    aspect-ratio: 16 / 6;
   }
 
-  .exames-option:hover {
-    transform: none;
+  .exames-option {
+    min-height: 7.8125rem;
   }
 }

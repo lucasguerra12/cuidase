@@ -1,91 +1,65 @@
 
-/* ==========================================
-   CUIDA-SE | HOME PAGE
-   ========================================== */
-
-/* Página principal */
+/* CUIDA-SE | HOME */
 
 .home-page {
-  min-height: 100vh;
   min-height: 100dvh;
   background: #fff7f2;
   color: #342b28;
 
-  padding-bottom: calc(90px + env(safe-area-inset-bottom));
+  padding-bottom: calc(5rem + env(safe-area-inset-bottom));
 }
-
-/* Container principal */
 
 .home-container {
   width: 100%;
-  max-width: 1500px;
-  min-height: calc(100dvh - 90px);
-
-  margin: 0 auto;
-  padding: 36px clamp(24px, 4vw, 64px);
+  max-width: 90rem;
+  margin-inline: auto;
 
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: var(--section-gap);
+
+  padding: clamp(1rem, 3vw, 2.25rem)
+           var(--page-gutter);
 }
 
-/* ==========================================
-   CABEÇALHO
-   ========================================== */
+/* Cabeçalho */
 
 .home-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: 20px;
+  gap: 1rem;
 }
 
 .home-header h1 {
-  font-size: clamp(26px, 3vw, 38px);
-  font-weight: 700;
-  line-height: 1.2;
-
-  margin-bottom: 10px;
+  font-size: clamp(1.5rem, 3vw, 2.375rem);
+  line-height: 1.25;
+  margin-bottom: 0.5rem;
+  overflow-wrap: anywhere;
 }
 
 .home-header p {
-  font-size: clamp(15px, 1.4vw, 18px);
+  font-size: clamp(0.875rem, 1.4vw, 1.125rem);
   line-height: 1.6;
   color: #594b45;
 }
 
-/* Botão de notificações */
-
 .notification-button {
-  width: 52px;
-  height: 52px;
-
   flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
 
   border: none;
   border-radius: 50%;
 
   background: #f8e8e3;
   color: #7d5354;
-
-  cursor: pointer;
-
-  transition: background 0.2s ease,
-              transform 0.2s ease;
 }
 
-.notification-button:hover {
-  background: #f0d7d2;
-  transform: scale(1.05);
-}
-
-/* ==========================================
-   BANNER PRINCIPAL
-   ========================================== */
+/* Banner */
 
 .home-banner {
   position: relative;
@@ -93,176 +67,128 @@
   display: flex;
   align-items: center;
 
-  flex: 1;
-  min-height: clamp(300px, 36dvh, 480px);
+  width: 100%;
+  min-height: clamp(14rem, 30dvh, 30rem);
 
   overflow: hidden;
-  border-radius: 26px;
+  border-radius: var(--radius-card);
 
   background-color: #f1dbcc;
-
   background-image:
     linear-gradient(
       90deg,
-      rgba(247, 231, 220, 0.94) 0%,
-      rgba(247, 231, 220, 0.76) 30%,
-      rgba(247, 231, 220, 0.12) 72%
+      rgba(247,231,220,0.95) 0%,
+      rgba(247,231,220,0.72) 42%,
+      rgba(247,231,220,0.1) 100%
     ),
     url('../../assets/images/banner-home.jpeg');
 
   background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-position: 60% center;
 }
-
-/* Conteúdo do banner */
 
 .banner-content {
   position: relative;
   z-index: 1;
 
   width: 100%;
-  padding: clamp(28px, 5vw, 65px);
+  padding: clamp(1.25rem, 5vw, 4rem);
 }
 
 .banner-content h2 {
-  font-family: Georgia, 'Times New Roman', serif;
-
-  font-size: clamp(34px, 4vw, 58px);
+  font-family: Georgia, serif;
+  font-size: clamp(1.7rem, 4vw, 3.625rem);
   font-weight: 400;
-  line-height: 1.12;
+  line-height: 1.15;
 
   color: #4b362e;
-
-  margin-bottom: 26px;
+  margin-bottom: 1.5rem;
 }
-
-/* Botão Saiba mais */
 
 .banner-button {
-  min-height: 52px;
-
-  padding: 15px 38px;
+  min-height: 2.75rem;
+  padding: 0.75rem clamp(1.25rem, 3vw, 2.375rem);
 
   border: none;
-  border-radius: 30px;
+  border-radius: 2rem;
 
   background: #b8797b;
-  color: #ffffff;
+  color: white;
 
-  font-size: 17px;
+  font-size: clamp(0.875rem, 1.2vw, 1.0625rem);
   font-weight: 600;
-
-  cursor: pointer;
-
-  transition: background 0.2s ease,
-              transform 0.2s ease;
 }
 
-.banner-button:hover {
-  background: #a9676a;
-  transform: translateY(-2px);
-}
-
-.banner-button:active {
-  transform: scale(0.98);
-}
-
-/* ==========================================
-   ACESSO RÁPIDO
-   ========================================== */
+/* Acesso rápido */
 
 .quick-section {
   width: 100%;
 }
 
 .quick-section > h2 {
-  font-size: clamp(22px, 2vw, 27px);
-  font-weight: 700;
-
-  margin-bottom: 18px;
+  font-size: clamp(1.25rem, 2vw, 1.6875rem);
+  margin-bottom: 1rem;
 }
-
-/* Grid dos quatro cards */
 
 .quick-grid {
   display: grid;
-
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.625rem, 2vw, 1.125rem);
 }
-
-/* Card */
 
 .quick-card {
   min-width: 0;
-  min-height: 180px;
+  min-height: clamp(8.5rem, 18vw, 11.25rem);
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 0.875rem;
 
-  gap: 18px;
-  padding: 24px 15px;
+  padding: clamp(0.75rem, 2vw, 1.5rem);
 
   border: none;
-  border-radius: 22px;
+  border-radius: var(--radius-card);
 
   background: #f4dfdc;
   color: #673f41;
 
-  cursor: pointer;
-
-  transition: background 0.2s ease,
-              transform 0.2s ease,
-              box-shadow 0.2s ease;
+  transition: background 0.2s, transform 0.2s;
 }
 
 .quick-card:hover {
   background: #edcfcc;
-
-  transform: translateY(-4px);
-
-  box-shadow: 0 10px 25px rgba(95, 56, 54, 0.08);
+  transform: translateY(-2px);
 }
 
-/* Ícone do card */
-
 .quick-icon {
-  width: 68px;
-  height: 68px;
+  width: clamp(3rem, 7vw, 4.25rem);
+  aspect-ratio: 1;
 
   flex-shrink: 0;
+  display: grid;
+  place-items: center;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 19px;
-
+  border-radius: 1rem;
   background: #f7e9e5;
   color: #ad6c72;
 }
 
 .quick-icon svg {
-  width: 34px;
-  height: 34px;
+  width: 50%;
+  height: 50%;
 }
-
-/* Texto do card */
 
 .quick-label {
-  font-size: clamp(14px, 1.3vw, 17px);
-  font-weight: 500;
+  font-size: clamp(0.8rem, 1.4vw, 1.0625rem);
   line-height: 1.4;
-
+  font-weight: 500;
   text-align: center;
+  overflow-wrap: anywhere;
 }
 
-/* ==========================================
-   ACOMPANHAMENTO
-   ========================================== */
+/* Acompanhamento */
 
 .health-section {
   width: 100%;
@@ -270,51 +196,40 @@
 
 .health-card {
   width: 100%;
-  min-height: 115px;
+  min-height: 6.5rem;
 
   display: flex;
   align-items: center;
+  gap: clamp(0.75rem, 2vw, 1.375rem);
 
-  gap: 22px;
-  padding: 22px 26px;
+  padding: clamp(0.875rem, 2vw, 1.375rem);
 
   border: 1px solid #f0dfda;
-  border-radius: 22px;
+  border-radius: var(--radius-card);
 
   background: #f8ebe6;
   color: #423631;
-
   text-align: left;
-  cursor: pointer;
-
-  transition: background 0.2s ease,
-              transform 0.2s ease;
 }
-
-.health-card:hover {
-  background: #f3dfd8;
-  transform: translateY(-2px);
-}
-
-/* Ícone do acompanhamento */
 
 .health-icon {
-  width: 72px;
-  height: 72px;
-
   flex-shrink: 0;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: clamp(3rem, 7vw, 4.5rem);
+  aspect-ratio: 1;
 
-  border-radius: 20px;
+  display: grid;
+  place-items: center;
 
+  border-radius: 1rem;
   background: #efd5d4;
   color: #b16b72;
 }
 
-/* Informações */
+.health-icon svg {
+  width: 50%;
+  height: 50%;
+}
 
 .health-content {
   flex: 1;
@@ -322,44 +237,40 @@
 }
 
 .health-content h3 {
-  font-size: 19px;
-  font-weight: 700;
-
-  margin-bottom: 7px;
+  font-size: clamp(0.95rem, 1.5vw, 1.1875rem);
+  margin-bottom: 0.375rem;
 }
 
 .health-content p {
-  font-size: 15px;
+  font-size: clamp(0.8rem, 1.2vw, 0.9375rem);
   line-height: 1.5;
-
   color: #74625d;
 }
 
-/* ==========================================
-   NAVEGAÇÃO INFERIOR
-   ========================================== */
+.health-card > svg {
+  flex-shrink: 0;
+}
+
+/* Navegação inferior */
 
 .bottom-navigation {
   position: fixed;
-
   bottom: 0;
   left: 0;
 
-  width: 100%;
   z-index: 10;
+  width: 100%;
 
   padding-bottom: env(safe-area-inset-bottom);
 
   background: #fffaf7;
   border-top: 1px solid #eaded8;
-
-  box-shadow: 0 -4px 20px rgba(70, 45, 39, 0.04);
+  box-shadow: 0 -4px 20px rgba(70,45,39,0.04);
 }
 
 .bottom-navigation-content {
   width: 100%;
-  max-width: 1500px;
-
+  max-width: 90rem;
   margin: 0 auto;
 
   display: grid;
@@ -367,38 +278,33 @@
 }
 
 .nav-item {
-  min-height: 80px;
+  min-width: 0;
+  min-height: 4.5rem;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 0.3rem;
 
-  gap: 7px;
-  padding: 10px 4px;
+  padding: 0.5rem 0.125rem;
 
   border: none;
   background: transparent;
 
   color: #857a74;
-
-  font-size: 14px;
-  font-weight: 400;
-
-  cursor: pointer;
-
-  transition: color 0.2s ease,
-              background 0.2s ease;
+  font-size: clamp(0.65rem, 1.2vw, 0.875rem);
+  text-align: center;
 }
 
 .nav-item svg {
-  width: 25px;
-  height: 25px;
+  flex-shrink: 0;
+  width: 1.4rem;
+  height: 1.4rem;
 }
 
-.nav-item:hover {
-  color: #a45f65;
-  background: #fcf0eb;
+.nav-item span {
+  overflow-wrap: anywhere;
 }
 
 .nav-item.active {
@@ -406,355 +312,113 @@
   font-weight: 700;
 }
 
-/* ==========================================
-   MODAL TEMPORÁRIO
-   ========================================== */
+/* Modal */
 
 .modal-overlay {
   position: fixed;
   inset: 0;
-
   z-index: 20;
 
   display: grid;
   place-items: center;
+  padding: 1rem;
 
-  padding: 20px;
-
-  background: rgba(39, 27, 24, 0.35);
+  background: rgba(39,27,24,0.35);
 }
 
 .home-modal {
   position: relative;
 
-  width: 100%;
-  max-width: 380px;
+  width: min(100%, 24rem);
+  max-height: calc(100dvh - 2rem);
+  overflow-y: auto;
 
-  padding: 40px 26px;
+  padding: clamp(1.5rem, 5vw, 2.5rem);
 
-  border-radius: 24px;
+  border-radius: 1.5rem;
   background: #fffaf7;
-
   text-align: center;
 
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
 }
 
 .home-modal h2 {
-  font-size: 22px;
-
-  margin: 18px 0 12px;
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
+  margin: 1rem 0 0.75rem;
 }
 
 .home-modal p {
-  font-size: 15px;
+  font-size: 0.9rem;
   line-height: 1.6;
-
   color: #76645d;
 }
 
-/* Botão fechar */
-
 .modal-close {
   position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
 
-  top: 16px;
-  right: 16px;
+  width: 2.5rem;
+  height: 2.5rem;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 32px;
-  height: 32px;
+  display: grid;
+  place-items: center;
 
   border: none;
   background: transparent;
-
   color: #6e5952;
-  cursor: pointer;
 }
-
-/* Botão do modal */
 
 .modal-button {
-  min-height: 44px;
-
-  margin-top: 24px;
-  padding: 12px 34px;
+  min-height: 2.75rem;
+  margin-top: 1.5rem;
+  padding: 0.75rem 2rem;
 
   border: none;
-  border-radius: 22px;
+  border-radius: 2rem;
 
   background: #b8797b;
-  color: #ffffff;
-
-  font-size: 15px;
+  color: white;
   font-weight: 600;
-
-  cursor: pointer;
 }
 
-.modal-button:hover {
-  background: #a9676a;
-}
+/* Desktop */
 
-/* ==========================================
-   TABLETS
-   ========================================== */
-
-@media (max-width: 900px) {
-
+@media (min-width: 768px) {
   .home-container {
-    padding: 30px 24px;
-    gap: 24px;
-  }
-
-  .home-banner {
-    flex: initial;
-    min-height: 320px;
+    min-height: calc(100dvh - 5rem);
   }
 
   .quick-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
-
-  .quick-card {
-    min-height: 165px;
-  }
-
-  .quick-label {
-    font-size: 16px;
-  }
-}
-
-/* ==========================================
-   CELULARES
-   ========================================== */
-
-@media (max-width: 600px) {
-
-  .home-page {
-    padding-bottom: calc(78px + env(safe-area-inset-bottom));
-  }
-
-  .home-container {
-    min-height: auto;
-
-    padding: 24px 16px 28px;
-    gap: 22px;
-  }
-
-  /* Cabeçalho */
-
-  .home-header {
-    gap: 12px;
-  }
-
-  .home-header h1 {
-    font-size: 26px;
-    margin-bottom: 8px;
-  }
-
-  .home-header p {
-    font-size: 14px;
-    line-height: 1.5;
-  }
-
-  .notification-button {
-    width: 44px;
-    height: 44px;
-  }
-
-  /* Banner */
 
   .home-banner {
-    flex: initial;
-
-    min-height: clamp(230px, 30dvh, 310px);
-
-    border-radius: 20px;
-
-    background-position: 62% center;
-
-    background-image:
-      linear-gradient(
-        90deg,
-        rgba(247, 231, 220, 0.94) 0%,
-        rgba(247, 231, 220, 0.70) 43%,
-        rgba(247, 231, 220, 0.08) 100%
-      ),
-      url('../../assets/images/banner-home.jpeg');
-  }
-
-  .banner-content {
-    padding: 24px;
-  }
-
-  .banner-content h2 {
-    font-size: clamp(27px, 7vw, 35px);
-    margin-bottom: 20px;
-  }
-
-  .banner-button {
-    min-height: 44px;
-
-    padding: 12px 28px;
-
-    font-size: 14px;
-  }
-
-  /* Acesso rápido */
-
-  .quick-section > h2 {
-    font-size: 21px;
-    margin-bottom: 14px;
-  }
-
-  .quick-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-  }
-
-  .quick-card {
-    min-height: 145px;
-
-    padding: 18px 12px;
-    gap: 12px;
-
-    border-radius: 18px;
-  }
-
-  .quick-icon {
-    width: 58px;
-    height: 58px;
-
-    border-radius: 16px;
-  }
-
-  .quick-icon svg {
-    width: 30px;
-    height: 30px;
-  }
-
-  .quick-label {
-    font-size: 14px;
-    line-height: 1.3;
-  }
-
-  /* Acompanhamento */
-
-  .health-card {
-    min-height: 105px;
-
-    padding: 16px;
-    gap: 14px;
-
-    border-radius: 18px;
-  }
-
-  .health-icon {
-    width: 58px;
-    height: 58px;
-
-    border-radius: 16px;
-  }
-
-  .health-content h3 {
-    font-size: 16px;
-    margin-bottom: 5px;
-  }
-
-  .health-content p {
-    font-size: 13px;
-    line-height: 1.4;
-  }
-
-  /* Navegação */
-
-  .nav-item {
-    min-height: 72px;
-
-    font-size: 11px;
-    gap: 5px;
-  }
-
-  .nav-item svg {
-    width: 23px;
-    height: 23px;
+    min-height: clamp(18rem, 35dvh, 30rem);
+    background-position: center;
   }
 }
 
-/* ==========================================
-   CELULARES PEQUENOS
-   ========================================== */
+/* Celulares estreitos */
 
 @media (max-width: 360px) {
-
-  .home-container {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
   .home-header h1 {
-    font-size: 23px;
+    font-size: 1.4rem;
   }
 
   .banner-content {
-    padding: 18px;
+    padding: 1rem;
   }
 
   .banner-content h2 {
-    font-size: 26px;
+    font-size: 1.6rem;
   }
 
   .quick-card {
-    min-height: 135px;
-    padding: 14px 8px;
-  }
-
-  .quick-label {
-    font-size: 12px;
+    min-height: 8rem;
   }
 
   .health-card {
-    gap: 10px;
-    padding: 12px;
-  }
-
-  .health-icon {
-    width: 50px;
-    height: 50px;
-  }
-
-  .health-content h3 {
-    font-size: 14px;
-  }
-
-  .health-content p {
-    font-size: 12px;
-  }
-}
-
-/* ==========================================
-   ACESSIBILIDADE
-   ========================================== */
-
-@media (prefers-reduced-motion: reduce) {
-
-  .notification-button,
-  .banner-button,
-  .quick-card,
-  .health-card,
-  .nav-item {
-    transition: none;
-  }
-
-  .notification-button:hover,
-  .banner-button:hover,
-  .quick-card:hover,
-  .health-card:hover {
-    transform: none;
+    gap: 0.5rem;
   }
 }

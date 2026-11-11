@@ -1,13 +1,8 @@
 
-/* ==========================================
-   CUIDA-SE | SOBRE A DOENÇA
-========================================== */
-
-/* 1. ESTRUTURA PRINCIPAL */
+/* CUIDA-SE | SOBRE A DOENÇA */
 
 .sobre-page {
   width: 100%;
-  min-height: 100vh;
   min-height: 100dvh;
   background: #fff7f2;
   color: #392d29;
@@ -15,115 +10,101 @@
 
 .sobre-container {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 36px clamp(20px, 4vw, 64px) 70px;
+  max-width: 72rem;
+  margin-inline: auto;
+
+  padding: clamp(1rem, 3vw, 2.25rem)
+           var(--page-gutter) 4rem;
 }
 
-/* 2. CABEÇALHO */
+/* Cabeçalho */
 
 .sobre-header {
   display: grid;
-  grid-template-columns: 48px minmax(0, 1fr) 48px;
+  grid-template-columns: 2.75rem minmax(0, 1fr) 2.75rem;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 32px;
+
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
 }
 
 .sobre-header::after {
   content: '';
-  width: 48px;
-  height: 48px;
+  width: 2.75rem;
+  height: 2.75rem;
 }
 
 .sobre-header h1 {
-  font-size: clamp(23px, 3vw, 32px);
-  font-weight: 700;
+  font-size: clamp(1.25rem, 3vw, 2rem);
   line-height: 1.3;
   text-align: center;
+  overflow-wrap: anywhere;
 }
 
 .sobre-back {
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+
+  display: grid;
+  place-items: center;
 
   border: none;
   border-radius: 50%;
   background: #f6e5df;
   color: #654740;
 
-  cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
+  transition: background 0.2s;
 }
 
 .sobre-back:hover {
   background: #edd4cd;
-  transform: translateX(-3px);
 }
 
-/* 3. ABAS DE NAVEGAÇÃO */
+/* Abas */
 
 .sobre-tabs {
-  width: 100%;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-  margin-bottom: 28px;
+
+  gap: clamp(0.4rem, 1.5vw, 0.75rem);
+  margin-bottom: 1.75rem;
 }
 
 .sobre-tab {
   min-width: 0;
-  min-height: 54px;
-  padding: 12px 16px;
+  min-height: 2.9rem;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 0.75rem 0.5rem;
 
   border: none;
-  border-radius: 16px;
+  border-radius: 0.9rem;
 
   background: #f5e9e3;
   color: #6c5149;
 
-  font-size: 15px;
+  font-size: clamp(0.75rem, 1.5vw, 0.9375rem);
   font-weight: 500;
   text-align: center;
-
-  cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
 }
 
 .sobre-tab.ativa {
   background: #986a54;
-  color: #ffffff;
+  color: white;
   font-weight: 600;
 }
 
 .sobre-tab:hover:not(.ativa) {
   background: #ead8cf;
-  transform: translateY(-2px);
 }
 
-/* 4. IMAGEM EDUCATIVA */
-
-/*
-   A imagem determina a altura do container.
-   Não utilizar height fixo nem object-fit: contain.
-*/
+/* Ilustração */
 
 .sobre-illustration {
   width: 100%;
-  height: auto;
-  margin-bottom: 30px;
+  margin-bottom: 1.75rem;
 
-  display: block;
   overflow: hidden;
-
-  border-radius: 24px;
+  border-radius: var(--radius-card);
   background: #f3dcd8;
 }
 
@@ -133,123 +114,133 @@
   height: auto;
 }
 
-/* 5. CARD DE CONTEÚDO */
+/* Card educativo */
 
 .sobre-card {
   width: 100%;
-  padding: clamp(24px, 4vw, 48px);
+  min-width: 0;
+
+  padding: clamp(1.25rem, 4vw, 3rem);
 
   border: 1px solid #f1e2dc;
-  border-radius: 26px;
+  border-radius: var(--radius-card);
   background: #fffdfb;
 
-  box-shadow: 0 8px 30px rgba(95, 56, 54, 0.04);
+  box-shadow: 0 8px 30px rgba(95,56,54,0.04);
 }
 
 .sobre-card h2 {
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
 
-  font-size: clamp(22px, 2.7vw, 32px);
-  font-weight: 700;
-  line-height: 1.3;
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  line-height: 1.35;
   color: #493731;
+  overflow-wrap: anywhere;
 }
 
-/* 6. PARÁGRAFOS */
+/* Textos */
 
 .sobre-texto {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 1rem;
 }
 
 .sobre-texto p {
-  font-size: clamp(15px, 1.3vw, 17px);
+  font-size: clamp(0.9rem, 1.4vw, 1.0625rem);
   line-height: 1.8;
   color: #68554e;
 }
 
-/* 7. LISTA DE INFORMAÇÕES */
+/* Lista */
 
 .sobre-lista {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 0.875rem;
 
-  margin: 28px 0;
-  padding-left: 25px;
+  margin: 1.75rem 0;
+  padding-left: 1.5rem;
+
   color: #68554e;
 }
 
 .sobre-lista li {
-  padding-left: 5px;
-  font-size: clamp(15px, 1.2vw, 17px);
-  line-height: 1.7;
+  padding-left: 0.25rem;
+
+  font-size: clamp(0.9rem, 1.4vw, 1.0625rem);
+  line-height: 1.75;
+
+  overflow-wrap: anywhere;
 }
 
 .sobre-lista li::marker {
   color: #b8797b;
 }
 
-/* 8. DESTAQUE EDUCATIVO */
+/* Destaque */
 
 .sobre-highlight {
   width: 100%;
   display: flex;
   align-items: flex-start;
-  gap: 16px;
 
-  margin-top: 28px;
-  padding: 24px;
+  gap: 0.875rem;
+  margin-top: 1.75rem;
+  padding: clamp(1rem, 3vw, 1.5rem);
 
-  border-radius: 20px;
+  border-radius: 1.125rem;
   background: #f8e6e3;
   color: #985a63;
 }
 
 .sobre-highlight svg {
   flex-shrink: 0;
-  width: 26px;
-  height: 26px;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .sobre-highlight p {
   flex: 1;
-  font-size: 15px;
-  font-weight: 500;
+  min-width: 0;
+
+  font-size: clamp(0.85rem, 1.3vw, 0.9375rem);
   line-height: 1.7;
 }
 
-/* 9. RODAPÉ E FONTES */
+/* Rodapé */
 
 .sobre-footer {
   width: 100%;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 18px;
+  gap: 1.125rem;
 
-  margin-top: 32px;
+  margin-top: 2rem;
   text-align: center;
 }
 
 .sobre-footer > p {
-  max-width: 650px;
-  font-size: 14px;
+  max-width: 40rem;
+  font-size: 0.875rem;
   line-height: 1.6;
   color: #7c6860;
 }
 
+/* Referências */
+
 .sobre-fontes {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 0.75rem;
 }
 
 .sobre-fontes h3 {
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 1rem;
   color: #604a43;
 }
 
@@ -257,232 +248,58 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 0.5rem;
+
+  max-width: 100%;
 
   color: #a5676e;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 1.5;
+  text-align: center;
 
+  overflow-wrap: anywhere;
   text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: color 0.2s;
-}
-
-.sobre-fontes a:hover {
-  color: #80494f;
 }
 
 .sobre-fontes a svg {
   flex-shrink: 0;
 }
 
-/* 10. TABLETS */
+/* Celulares compactos */
 
-@media (max-width: 900px) {
-  .sobre-container {
-    padding: 28px 24px 55px;
-  }
-
+@media (max-width: 420px) {
   .sobre-tabs {
-    gap: 10px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .sobre-tab {
-    min-height: 50px;
-    font-size: 14px;
+    min-height: 2.75rem;
+    font-size: 0.875rem;
   }
 
   .sobre-card {
-    padding: 30px;
+    padding: 1.25rem 1rem;
   }
-}
-
-/* 11. CELULARES */
-
-@media (max-width: 600px) {
-  .sobre-container {
-    padding: 22px 16px 45px;
-  }
-
-  /* Cabeçalho */
-
-  .sobre-header {
-    grid-template-columns: 42px minmax(0, 1fr) 42px;
-    gap: 8px;
-    margin-bottom: 26px;
-  }
-
-  .sobre-header::after {
-    width: 42px;
-    height: 42px;
-  }
-
-  .sobre-header h1 {
-    font-size: 21px;
-  }
-
-  .sobre-back {
-    width: 42px;
-    height: 42px;
-  }
-
-  /* Abas */
-
-  .sobre-tabs {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 8px;
-    margin-bottom: 22px;
-
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
-  .sobre-tabs::-webkit-scrollbar {
-    display: none;
-  }
-
-  .sobre-tab {
-    flex: 1 0 auto;
-    min-width: 76px;
-    min-height: 45px;
-    padding: 10px 12px;
-
-    font-size: 12px;
-    border-radius: 13px;
-  }
-
-  /* Imagem */
-
-  .sobre-illustration {
-    margin-bottom: 22px;
-    border-radius: 20px;
-  }
-
-  /* Card */
-
-  .sobre-card {
-    padding: 24px 19px;
-    border-radius: 20px;
-  }
-
-  .sobre-card h2 {
-    margin-bottom: 20px;
-    font-size: 21px;
-  }
-
-  /* Textos */
-
-  .sobre-texto {
-    gap: 15px;
-  }
-
-  .sobre-texto p {
-    font-size: 14px;
-    line-height: 1.75;
-  }
-
-  /* Lista */
-
-  .sobre-lista {
-    gap: 12px;
-    margin: 22px 0;
-    padding-left: 20px;
-  }
-
-  .sobre-lista li {
-    font-size: 14px;
-    line-height: 1.65;
-  }
-
-  /* Destaque */
 
   .sobre-highlight {
-    gap: 12px;
-    margin-top: 24px;
-    padding: 18px 15px;
-    border-radius: 16px;
-  }
-
-  .sobre-highlight svg {
-    width: 22px;
-    height: 22px;
-  }
-
-  .sobre-highlight p {
-    font-size: 13px;
-    line-height: 1.6;
-  }
-
-  /* Rodapé */
-
-  .sobre-footer {
-    margin-top: 26px;
-    gap: 15px;
-  }
-
-  .sobre-footer > p {
-    font-size: 12px;
-  }
-
-  .sobre-fontes h3 {
-    font-size: 14px;
-  }
-
-  .sobre-fontes a {
-    font-size: 12px;
+    gap: 0.625rem;
   }
 }
 
-/* 12. CELULARES PEQUENOS */
+/* Desktop */
 
-@media (max-width: 360px) {
-  .sobre-container {
-    padding-left: 12px;
-    padding-right: 12px;
+@media (min-width: 768px) {
+  .sobre-header {
+    grid-template-columns: 3rem minmax(0, 1fr) 3rem;
   }
 
-  .sobre-header h1 {
-    font-size: 19px;
+  .sobre-header::after,
+  .sobre-back {
+    width: 3rem;
+    height: 3rem;
   }
 
   .sobre-tab {
-    min-width: 72px;
-    font-size: 11px;
-  }
-
-  .sobre-card {
-    padding: 20px 15px;
-  }
-
-  .sobre-card h2 {
-    font-size: 19px;
-  }
-
-  .sobre-texto p,
-  .sobre-lista li {
-    font-size: 13px;
-  }
-}
-
-/* 13. ACESSIBILIDADE */
-
-.sobre-back:focus-visible,
-.sobre-tab:focus-visible,
-.sobre-fontes a:focus-visible {
-  outline: 3px solid #a5676e;
-  outline-offset: 3px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .sobre-back,
-  .sobre-tab,
-  .sobre-fontes a {
-    transition: none;
-  }
-
-  .sobre-back:hover,
-  .sobre-tab:hover {
-    transform: none;
+    min-height: 3.375rem;
   }
 }

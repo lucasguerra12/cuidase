@@ -1,7 +1,41 @@
 
-* {
-  margin: 0;
-  padding: 0;
+/* =====================================
+   CUIDA-SE | ESTILOS GLOBAIS
+===================================== */
+
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 100%;
+
+  color: #453a35;
+  background: #fff7f2;
+
+  /* Cores */
+  --color-bg: #fff7f2;
+  --color-surface: #fffdfb;
+  --color-primary: #b8797b;
+  --color-primary-hover: #a9676a;
+  --color-text: #392d29;
+  --color-muted: #74625d;
+  --color-border: #f0dfda;
+
+  /* Layout */
+  --content-max: 90rem;
+  --reading-max: 72rem;
+
+  /* Espaçamento responsivo */
+  --page-gutter: clamp(0.75rem, 4vw, 4rem);
+  --section-gap: clamp(1.25rem, 3vw, 2rem);
+
+  /* Bordas */
+  --radius-card: clamp(1rem, 2vw, 1.5rem);
+}
+
+/* Reset */
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -10,15 +44,74 @@ body,
 #root {
   width: 100%;
   min-height: 100%;
+  margin: 0;
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f4e9e3;
-  color: #453a35;
+  font-family: inherit;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
 }
 
 button,
-input {
+input,
+textarea,
+select {
   font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+}
+
+img,
+video,
+svg {
+  max-width: 100%;
+}
+
+img {
+  display: block;
+}
+
+/* Evita conteúdo estourando containers */
+
+main,
+section,
+article,
+header,
+footer,
+nav,
+div {
+  min-width: 0;
+}
+
+/* Foco visível para navegação por teclado */
+
+:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* Respeita usuários que preferem menos animações */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
