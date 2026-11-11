@@ -1,245 +1,404 @@
 
+/* ==========================================
+   CUIDA-SE | HOME PAGE
+   ========================================== */
+
+/* Página principal */
+
 .home-page {
+  min-height: 100vh;
   min-height: 100dvh;
   background: #fff7f2;
   color: #342b28;
-  padding-bottom: 100px;
+
+  padding-bottom: calc(90px + env(safe-area-inset-bottom));
 }
+
+/* Container principal */
 
 .home-container {
   width: 100%;
-  max-width: 1180px;
+  max-width: 1500px;
+  min-height: calc(100dvh - 90px);
+
   margin: 0 auto;
-  padding: 32px 24px;
+  padding: 36px clamp(24px, 4vw, 64px);
+
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
 }
 
-/* Cabeçalho */
+/* ==========================================
+   CABEÇALHO
+   ========================================== */
 
 .home-header {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 28px;
+  gap: 20px;
 }
 
 .home-header h1 {
-  font-size: clamp(23px, 3vw, 32px);
+  font-size: clamp(26px, 3vw, 38px);
   font-weight: 700;
-  margin-bottom: 8px;
+  line-height: 1.2;
+
+  margin-bottom: 10px;
 }
 
 .home-header p {
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: clamp(15px, 1.4vw, 18px);
+  line-height: 1.6;
   color: #594b45;
 }
 
+/* Botão de notificações */
+
 .notification-button {
-  background: transparent;
+  width: 52px;
+  height: 52px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   border: none;
-  color: #45342e;
+  border-radius: 50%;
+
+  background: #f8e8e3;
+  color: #7d5354;
+
   cursor: pointer;
-  padding: 8px;
+
+  transition: background 0.2s ease,
+              transform 0.2s ease;
 }
 
-/* Banner */
+.notification-button:hover {
+  background: #f0d7d2;
+  transform: scale(1.05);
+}
+
+/* ==========================================
+   BANNER PRINCIPAL
+   ========================================== */
 
 .home-banner {
   position: relative;
+
   display: flex;
   align-items: center;
-  min-height: 235px;
+
+  flex: 1;
+  min-height: clamp(300px, 36dvh, 480px);
+
   overflow: hidden;
-  border-radius: 19px;
-  margin-bottom: 30px;
+  border-radius: 26px;
 
-  background: linear-gradient(
-    110deg,
-    #f1dbcc 0%,
-    #f4e3d8 50%,
-    #d7ac9b 100%
-  );
+  background-color: #f1dbcc;
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(247, 231, 220, 0.94) 0%,
+      rgba(247, 231, 220, 0.76) 30%,
+      rgba(247, 231, 220, 0.12) 72%
+    ),
+    url('../../assets/images/banner-home.jpeg');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.home-banner::after {
-  content: '';
-  position: absolute;
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  right: -60px;
-  bottom: -100px;
-  background: rgba(255, 255, 255, 0.18);
-}
+/* Conteúdo do banner */
 
 .banner-content {
   position: relative;
   z-index: 1;
-  padding: 28px;
+
+  width: 100%;
+  padding: clamp(28px, 5vw, 65px);
 }
 
 .banner-content h2 {
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(25px, 3vw, 39px);
+
+  font-size: clamp(34px, 4vw, 58px);
   font-weight: 400;
-  line-height: 1.1;
+  line-height: 1.12;
+
   color: #4b362e;
-  margin-bottom: 20px;
+
+  margin-bottom: 26px;
 }
 
+/* Botão Saiba mais */
+
 .banner-button {
+  min-height: 52px;
+
+  padding: 15px 38px;
+
   border: none;
-  border-radius: 24px;
+  border-radius: 30px;
+
   background: #b8797b;
-  color: white;
-  padding: 11px 27px;
-  font-size: 14px;
+  color: #ffffff;
+
+  font-size: 17px;
+  font-weight: 600;
+
   cursor: pointer;
+
+  transition: background 0.2s ease,
+              transform 0.2s ease;
 }
 
 .banner-button:hover {
   background: #a9676a;
+  transform: translateY(-2px);
 }
 
-/* Acesso rápido */
+.banner-button:active {
+  transform: scale(0.98);
+}
+
+/* ==========================================
+   ACESSO RÁPIDO
+   ========================================== */
 
 .quick-section {
-  margin-bottom: 24px;
+  width: 100%;
 }
 
 .quick-section > h2 {
-  font-size: 19px;
+  font-size: clamp(22px, 2vw, 27px);
   font-weight: 700;
-  margin-bottom: 16px;
+
+  margin-bottom: 18px;
 }
+
+/* Grid dos quatro cards */
 
 .quick-grid {
   display: grid;
+
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
+  gap: 18px;
 }
+
+/* Card */
 
 .quick-card {
   min-width: 0;
-  min-height: 125px;
+  min-height: 180px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 13px;
 
-  padding: 14px 8px;
-  background: #f4dfdc;
+  gap: 18px;
+  padding: 24px 15px;
+
   border: none;
-  border-radius: 17px;
+  border-radius: 22px;
+
+  background: #f4dfdc;
   color: #673f41;
+
   cursor: pointer;
 
-  transition: transform 0.2s, background 0.2s;
+  transition: background 0.2s ease,
+              transform 0.2s ease,
+              box-shadow 0.2s ease;
 }
 
 .quick-card:hover {
   background: #edcfcc;
-  transform: translateY(-3px);
+
+  transform: translateY(-4px);
+
+  box-shadow: 0 10px 25px rgba(95, 56, 54, 0.08);
 }
 
+/* Ícone do card */
+
 .quick-icon {
-  width: 51px;
-  height: 51px;
+  width: 68px;
+  height: 68px;
+
+  flex-shrink: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 15px;
+
+  border-radius: 19px;
+
   background: #f7e9e5;
   color: #ad6c72;
 }
 
+.quick-icon svg {
+  width: 34px;
+  height: 34px;
+}
+
+/* Texto do card */
+
 .quick-label {
-  font-size: 13px;
-  line-height: 1.25;
+  font-size: clamp(14px, 1.3vw, 17px);
+  font-weight: 500;
+  line-height: 1.4;
+
   text-align: center;
 }
 
-/* Acompanhamento */
+/* ==========================================
+   ACOMPANHAMENTO
+   ========================================== */
+
+.health-section {
+  width: 100%;
+}
 
 .health-card {
   width: 100%;
+  min-height: 115px;
+
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 16px;
+
+  gap: 22px;
+  padding: 22px 26px;
+
+  border: 1px solid #f0dfda;
+  border-radius: 22px;
 
   background: #f8ebe6;
-  border: 1px solid #f0dfda;
-  border-radius: 18px;
-  text-align: left;
   color: #423631;
+
+  text-align: left;
   cursor: pointer;
+
+  transition: background 0.2s ease,
+              transform 0.2s ease;
 }
 
+.health-card:hover {
+  background: #f3dfd8;
+  transform: translateY(-2px);
+}
+
+/* Ícone do acompanhamento */
+
 .health-icon {
+  width: 72px;
+  height: 72px;
+
   flex-shrink: 0;
-  width: 61px;
-  height: 61px;
+
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border-radius: 16px;
+  border-radius: 20px;
+
   background: #efd5d4;
   color: #b16b72;
 }
 
+/* Informações */
+
 .health-content {
   flex: 1;
+  min-width: 0;
 }
 
 .health-content h3 {
-  font-size: 15px;
-  margin-bottom: 5px;
+  font-size: 19px;
+  font-weight: 700;
+
+  margin-bottom: 7px;
 }
 
 .health-content p {
-  font-size: 13px;
-  line-height: 1.4;
+  font-size: 15px;
+  line-height: 1.5;
+
   color: #74625d;
 }
 
-/* Navegação inferior */
+/* ==========================================
+   NAVEGAÇÃO INFERIOR
+   ========================================== */
 
 .bottom-navigation {
   position: fixed;
+
   bottom: 0;
   left: 0;
-  z-index: 10;
+
   width: 100%;
+  z-index: 10;
+
+  padding-bottom: env(safe-area-inset-bottom);
 
   background: #fffaf7;
   border-top: 1px solid #eaded8;
+
+  box-shadow: 0 -4px 20px rgba(70, 45, 39, 0.04);
 }
 
 .bottom-navigation-content {
-  max-width: 1180px;
+  width: 100%;
+  max-width: 1500px;
+
   margin: 0 auto;
+
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 .nav-item {
+  min-height: 80px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 5px;
 
-  min-height: 70px;
-  padding: 9px 4px;
+  gap: 7px;
+  padding: 10px 4px;
+
   border: none;
   background: transparent;
+
   color: #857a74;
-  font-size: 12px;
+
+  font-size: 14px;
+  font-weight: 400;
+
   cursor: pointer;
+
+  transition: color 0.2s ease,
+              background 0.2s ease;
+}
+
+.nav-item svg {
+  width: 25px;
+  height: 25px;
+}
+
+.nav-item:hover {
+  color: #a45f65;
+  background: #fcf0eb;
 }
 
 .nav-item.active {
@@ -247,102 +406,355 @@
   font-weight: 700;
 }
 
-/* Aviso temporário */
+/* ==========================================
+   MODAL TEMPORÁRIO
+   ========================================== */
 
 .modal-overlay {
   position: fixed;
   inset: 0;
+
   z-index: 20;
+
   display: grid;
   place-items: center;
+
   padding: 20px;
+
   background: rgba(39, 27, 24, 0.35);
 }
 
 .home-modal {
   position: relative;
+
   width: 100%;
-  max-width: 360px;
-  padding: 36px 24px;
+  max-width: 380px;
+
+  padding: 40px 26px;
+
   border-radius: 24px;
   background: #fffaf7;
+
   text-align: center;
+
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
 }
 
 .home-modal h2 {
-  font-size: 21px;
-  margin: 15px 0 10px;
+  font-size: 22px;
+
+  margin: 18px 0 12px;
 }
 
 .home-modal p {
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: 15px;
+  line-height: 1.6;
+
   color: #76645d;
 }
 
+/* Botão fechar */
+
 .modal-close {
   position: absolute;
-  top: 14px;
-  right: 14px;
+
+  top: 16px;
+  right: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+
   border: none;
   background: transparent;
+
+  color: #6e5952;
   cursor: pointer;
 }
+
+/* Botão do modal */
 
 .modal-button {
-  margin-top: 22px;
-  padding: 11px 32px;
+  min-height: 44px;
+
+  margin-top: 24px;
+  padding: 12px 34px;
+
   border: none;
-  border-radius: 20px;
+  border-radius: 22px;
+
   background: #b8797b;
-  color: white;
+  color: #ffffff;
+
+  font-size: 15px;
+  font-weight: 600;
+
   cursor: pointer;
 }
 
-/* Celulares */
+.modal-button:hover {
+  background: #a9676a;
+}
 
-@media (max-width: 600px) {
+/* ==========================================
+   TABLETS
+   ========================================== */
+
+@media (max-width: 900px) {
+
   .home-container {
-    padding: 28px 17px;
-  }
-
-  .home-header {
-    margin-bottom: 22px;
+    padding: 30px 24px;
+    gap: 24px;
   }
 
   .home-banner {
-    min-height: 175px;
-    margin-bottom: 24px;
-  }
-
-  .banner-content {
-    padding: 22px;
-  }
-
-  .banner-content h2 {
-    font-size: 27px;
+    flex: initial;
+    min-height: 320px;
   }
 
   .quick-grid {
-    gap: 8px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
   }
 
   .quick-card {
-    min-height: 110px;
-    padding: 10px 4px;
-  }
-
-  .quick-icon {
-    width: 42px;
-    height: 42px;
+    min-height: 165px;
   }
 
   .quick-label {
-    font-size: 11px;
+    font-size: 16px;
+  }
+}
+
+/* ==========================================
+   CELULARES
+   ========================================== */
+
+@media (max-width: 600px) {
+
+  .home-page {
+    padding-bottom: calc(78px + env(safe-area-inset-bottom));
   }
 
+  .home-container {
+    min-height: auto;
+
+    padding: 24px 16px 28px;
+    gap: 22px;
+  }
+
+  /* Cabeçalho */
+
+  .home-header {
+    gap: 12px;
+  }
+
+  .home-header h1 {
+    font-size: 26px;
+    margin-bottom: 8px;
+  }
+
+  .home-header p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .notification-button {
+    width: 44px;
+    height: 44px;
+  }
+
+  /* Banner */
+
+  .home-banner {
+    flex: initial;
+
+    min-height: clamp(230px, 30dvh, 310px);
+
+    border-radius: 20px;
+
+    background-position: 62% center;
+
+    background-image:
+      linear-gradient(
+        90deg,
+        rgba(247, 231, 220, 0.94) 0%,
+        rgba(247, 231, 220, 0.70) 43%,
+        rgba(247, 231, 220, 0.08) 100%
+      ),
+      url('../../assets/images/banner-home.jpeg');
+  }
+
+  .banner-content {
+    padding: 24px;
+  }
+
+  .banner-content h2 {
+    font-size: clamp(27px, 7vw, 35px);
+    margin-bottom: 20px;
+  }
+
+  .banner-button {
+    min-height: 44px;
+
+    padding: 12px 28px;
+
+    font-size: 14px;
+  }
+
+  /* Acesso rápido */
+
+  .quick-section > h2 {
+    font-size: 21px;
+    margin-bottom: 14px;
+  }
+
+  .quick-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .quick-card {
+    min-height: 145px;
+
+    padding: 18px 12px;
+    gap: 12px;
+
+    border-radius: 18px;
+  }
+
+  .quick-icon {
+    width: 58px;
+    height: 58px;
+
+    border-radius: 16px;
+  }
+
+  .quick-icon svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .quick-label {
+    font-size: 14px;
+    line-height: 1.3;
+  }
+
+  /* Acompanhamento */
+
+  .health-card {
+    min-height: 105px;
+
+    padding: 16px;
+    gap: 14px;
+
+    border-radius: 18px;
+  }
+
+  .health-icon {
+    width: 58px;
+    height: 58px;
+
+    border-radius: 16px;
+  }
+
+  .health-content h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  .health-content p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  /* Navegação */
+
   .nav-item {
+    min-height: 72px;
+
     font-size: 11px;
+    gap: 5px;
+  }
+
+  .nav-item svg {
+    width: 23px;
+    height: 23px;
+  }
+}
+
+/* ==========================================
+   CELULARES PEQUENOS
+   ========================================== */
+
+@media (max-width: 360px) {
+
+  .home-container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .home-header h1 {
+    font-size: 23px;
+  }
+
+  .banner-content {
+    padding: 18px;
+  }
+
+  .banner-content h2 {
+    font-size: 26px;
+  }
+
+  .quick-card {
+    min-height: 135px;
+    padding: 14px 8px;
+  }
+
+  .quick-label {
+    font-size: 12px;
+  }
+
+  .health-card {
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .health-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .health-content h3 {
+    font-size: 14px;
+  }
+
+  .health-content p {
+    font-size: 12px;
+  }
+}
+
+/* ==========================================
+   ACESSIBILIDADE
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .notification-button,
+  .banner-button,
+  .quick-card,
+  .health-card,
+  .nav-item {
+    transition: none;
+  }
+
+  .notification-button:hover,
+  .banner-button:hover,
+  .quick-card:hover,
+  .health-card:hover {
+    transform: none;
   }
 }

@@ -1,0 +1,487 @@
+
+/* ======================================
+   CUIDA-SE | EXAMES E RASTREAMENTO
+====================================== */
+
+.exames-page {
+  width: 100%;
+  min-height: 100dvh;
+  background: #fff7f2;
+  color: #392d29;
+}
+
+.exames-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px 70px;
+}
+
+/* Cabeçalho */
+
+.exames-header {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) 48px;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.exames-header h1 {
+  font-size: clamp(22px, 3vw, 30px);
+  text-align: center;
+  line-height: 1.3;
+}
+
+.exames-back {
+  width: 48px;
+  height: 48px;
+
+  display: grid;
+  place-items: center;
+
+  border: none;
+  border-radius: 50%;
+  background: #f6e5df;
+  color: #654740;
+  cursor: pointer;
+}
+
+.exames-header-spacer {
+  width: 48px;
+}
+
+/* Banner */
+
+.exames-banner {
+  width: 100%;
+  height: clamp(240px, 30vw, 380px);
+
+  overflow: hidden;
+  border-radius: 25px;
+  background: #f1d6d2;
+}
+
+.exames-banner img {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Introdução */
+
+.exames-description {
+  margin: 28px 0 25px;
+}
+
+.exames-description h2 {
+  font-size: clamp(22px, 2.5vw, 28px);
+  margin-bottom: 8px;
+}
+
+.exames-description p {
+  font-size: 16px;
+  color: #78645d;
+  line-height: 1.6;
+}
+
+/* Lista dos exames */
+
+.exames-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.exames-option {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  min-height: 125px;
+  padding: 22px 24px;
+
+  border: 1px solid #f0e0db;
+  border-radius: 22px;
+
+  background: #fffdfb;
+  color: #423631;
+  text-decoration: none;
+
+  transition:
+    background 0.2s,
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.exames-option:hover {
+  background: #fdf0eb;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(95, 56, 54, 0.07);
+}
+
+.exames-option-icon {
+  flex-shrink: 0;
+
+  width: 76px;
+  height: 76px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 20px;
+  background: #f7e6e3;
+  color: #b16b72;
+}
+
+.exames-option-info {
+  flex: 1;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.exames-option-info strong {
+  font-size: 19px;
+  line-height: 1.3;
+}
+
+.exames-option-info small {
+  font-size: 14px;
+  font-weight: 600;
+  color: #a46c70;
+}
+
+.exames-option-info > span {
+  font-size: 15px;
+  color: #76645d;
+  line-height: 1.5;
+}
+
+.exames-chevron {
+  flex-shrink: 0;
+  color: #8f746b;
+}
+
+/* ======================================
+   PÁGINA DE CONTEÚDO
+====================================== */
+
+.exames-content-card {
+  width: 100%;
+  padding: clamp(24px, 4vw, 48px);
+
+  border: 1px solid #f0e0db;
+  border-radius: 25px;
+
+  background: #fffdfb;
+}
+
+.exames-content-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+  color: #a66e73;
+}
+
+.exames-content-heading h2 {
+  font-size: clamp(22px, 3vw, 32px);
+  color: #493731;
+}
+
+.exames-intro {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #68554e;
+  margin-bottom: 30px;
+}
+
+/* Seções educativas */
+
+.exames-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.exames-info-section {
+  padding: 24px;
+  border-radius: 18px;
+  background: #fcf3ef;
+}
+
+.exames-info-section h3 {
+  font-size: 19px;
+  color: #594039;
+  margin-bottom: 12px;
+}
+
+.exames-info-section p {
+  font-size: 16px;
+  line-height: 1.75;
+  color: #6d5952;
+}
+
+/* Destaque */
+
+.exames-highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+
+  padding: 22px;
+  margin-top: 28px;
+
+  border-radius: 18px;
+  background: #f8e6e3;
+  color: #985a63;
+}
+
+.exames-highlight svg {
+  flex-shrink: 0;
+}
+
+.exames-highlight p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Fontes */
+
+.exames-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  margin-top: 30px;
+  padding-top: 24px;
+
+  border-top: 1px solid #f0e0db;
+}
+
+.exames-footer p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #7c6860;
+}
+
+.exames-footer h3 {
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+.exames-footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  width: fit-content;
+  color: #a5676e;
+
+  font-size: 14px;
+  line-height: 1.5;
+  text-decoration: underline;
+}
+
+/* Conteúdo pendente */
+
+.exames-pendente {
+  min-height: 350px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+
+  text-align: center;
+}
+
+.exames-pendente > svg {
+  color: #b8797b;
+}
+
+.exames-pendente h2 {
+  font-size: 25px;
+}
+
+.exames-pendente p {
+  color: #76645d;
+  line-height: 1.6;
+}
+
+.exames-return {
+  padding: 13px 24px;
+  border-radius: 25px;
+
+  background: #b8797b;
+  color: white;
+  text-decoration: none;
+}
+
+/* ======================================
+   RESPONSIVIDADE
+====================================== */
+
+@media (max-width: 600px) {
+  .exames-container {
+    padding: 22px 16px 45px;
+  }
+
+  .exames-header {
+    grid-template-columns: 42px minmax(0, 1fr) 42px;
+    gap: 8px;
+    margin-bottom: 23px;
+  }
+
+  .exames-header h1 {
+    font-size: 21px;
+  }
+
+  .exames-back,
+  .exames-header-spacer {
+    width: 42px;
+    height: 42px;
+  }
+
+  .exames-banner {
+    height: 195px;
+    border-radius: 20px;
+  }
+
+  .exames-description {
+    margin: 23px 0 20px;
+  }
+
+  .exames-description h2 {
+    font-size: 21px;
+  }
+
+  .exames-description p {
+    font-size: 14px;
+  }
+
+  .exames-list {
+    gap: 12px;
+  }
+
+  .exames-option {
+    min-height: 112px;
+    padding: 14px 12px;
+    gap: 12px;
+    border-radius: 17px;
+  }
+
+  .exames-option-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+  }
+
+  .exames-option-icon svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .exames-option-info strong {
+    font-size: 15px;
+  }
+
+  .exames-option-info small {
+    font-size: 12px;
+  }
+
+  .exames-option-info > span {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .exames-chevron {
+    width: 18px;
+  }
+
+  .exames-content-card {
+    padding: 22px 17px;
+    border-radius: 20px;
+  }
+
+  .exames-content-heading h2 {
+    font-size: 21px;
+  }
+
+  .exames-intro {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .exames-sections {
+    gap: 13px;
+  }
+
+  .exames-info-section {
+    padding: 18px 15px;
+  }
+
+  .exames-info-section h3 {
+    font-size: 16px;
+  }
+
+  .exames-info-section p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .exames-highlight {
+    padding: 17px 14px;
+  }
+
+  .exames-highlight p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 360px) {
+  .exames-container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .exames-option {
+    gap: 9px;
+  }
+
+  .exames-option-icon {
+    width: 46px;
+    height: 46px;
+  }
+
+  .exames-option-info > span {
+    font-size: 11px;
+  }
+}
+
+/* Acessibilidade */
+
+.exames-option:focus-visible,
+.exames-back:focus-visible,
+.exames-return:focus-visible {
+  outline: 3px solid #a5676e;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .exames-option,
+  .exames-back {
+    transition: none;
+  }
+
+  .exames-option:hover {
+    transform: none;
+  }
+}
