@@ -1,0 +1,305 @@
+
+/* CUIDA-SE | SOBRE A DOENÇA */
+
+.sobre-page {
+  width: 100%;
+  min-height: 100dvh;
+  background: #fff7f2;
+  color: #392d29;
+}
+
+.sobre-container {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+
+  padding: clamp(1rem, 3vw, 2.25rem)
+           var(--page-gutter) 4rem;
+}
+
+/* Cabeçalho */
+
+.sobre-header {
+  display: grid;
+  grid-template-columns: 2.75rem minmax(0, 1fr) 2.75rem;
+  align-items: center;
+
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.sobre-header::after {
+  content: '';
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+.sobre-header h1 {
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  line-height: 1.3;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.sobre-back {
+  width: 2.75rem;
+  height: 2.75rem;
+
+  display: grid;
+  place-items: center;
+
+  border: none;
+  border-radius: 50%;
+  background: #f6e5df;
+  color: #654740;
+
+  transition: background 0.2s;
+}
+
+.sobre-back:hover {
+  background: #edd4cd;
+}
+
+/* Abas */
+
+.sobre-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: clamp(0.4rem, 1.5vw, 0.75rem);
+  margin-bottom: 1.75rem;
+}
+
+.sobre-tab {
+  min-width: 0;
+  min-height: 2.9rem;
+
+  padding: 0.75rem 0.5rem;
+
+  border: none;
+  border-radius: 0.9rem;
+
+  background: #f5e9e3;
+  color: #6c5149;
+
+  font-size: clamp(0.75rem, 1.5vw, 0.9375rem);
+  font-weight: 500;
+  text-align: center;
+}
+
+.sobre-tab.ativa {
+  background: #986a54;
+  color: white;
+  font-weight: 600;
+}
+
+.sobre-tab:hover:not(.ativa) {
+  background: #ead8cf;
+}
+
+/* Ilustração */
+
+.sobre-illustration {
+  width: 100%;
+  margin-bottom: 1.75rem;
+
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  background: #f3dcd8;
+}
+
+.sobre-illustration img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Card educativo */
+
+.sobre-card {
+  width: 100%;
+  min-width: 0;
+
+  padding: clamp(1.25rem, 4vw, 3rem);
+
+  border: 1px solid #f1e2dc;
+  border-radius: var(--radius-card);
+  background: #fffdfb;
+
+  box-shadow: 0 8px 30px rgba(95,56,54,0.04);
+}
+
+.sobre-card h2 {
+  margin-bottom: 1.5rem;
+
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  line-height: 1.35;
+  color: #493731;
+  overflow-wrap: anywhere;
+}
+
+/* Textos */
+
+.sobre-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sobre-texto p {
+  font-size: clamp(0.9rem, 1.4vw, 1.0625rem);
+  line-height: 1.8;
+  color: #68554e;
+}
+
+/* Lista */
+
+.sobre-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+
+  margin: 1.75rem 0;
+  padding-left: 1.5rem;
+
+  color: #68554e;
+}
+
+.sobre-lista li {
+  padding-left: 0.25rem;
+
+  font-size: clamp(0.9rem, 1.4vw, 1.0625rem);
+  line-height: 1.75;
+
+  overflow-wrap: anywhere;
+}
+
+.sobre-lista li::marker {
+  color: #b8797b;
+}
+
+/* Destaque */
+
+.sobre-highlight {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+
+  gap: 0.875rem;
+  margin-top: 1.75rem;
+  padding: clamp(1rem, 3vw, 1.5rem);
+
+  border-radius: 1.125rem;
+  background: #f8e6e3;
+  color: #985a63;
+}
+
+.sobre-highlight svg {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.sobre-highlight p {
+  flex: 1;
+  min-width: 0;
+
+  font-size: clamp(0.85rem, 1.3vw, 0.9375rem);
+  line-height: 1.7;
+}
+
+/* Rodapé */
+
+.sobre-footer {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.125rem;
+
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.sobre-footer > p {
+  max-width: 40rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #7c6860;
+}
+
+/* Referências */
+
+.sobre-fontes {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sobre-fontes h3 {
+  font-size: 1rem;
+  color: #604a43;
+}
+
+.sobre-fontes a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  max-width: 100%;
+
+  color: #a5676e;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  text-align: center;
+
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+}
+
+.sobre-fontes a svg {
+  flex-shrink: 0;
+}
+
+/* Celulares compactos */
+
+@media (max-width: 420px) {
+  .sobre-tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sobre-tab {
+    min-height: 2.75rem;
+    font-size: 0.875rem;
+  }
+
+  .sobre-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .sobre-highlight {
+    gap: 0.625rem;
+  }
+}
+
+/* Desktop */
+
+@media (min-width: 768px) {
+  .sobre-header {
+    grid-template-columns: 3rem minmax(0, 1fr) 3rem;
+  }
+
+  .sobre-header::after,
+  .sobre-back {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .sobre-tab {
+    min-height: 3.375rem;
+  }
+}

@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import {
   Bell,
@@ -16,6 +15,7 @@ import {
 } from 'lucide-react';
 
 import './HomePage.css';
+import { useNavigate } from 'react-router-dom';
 
 const quickAccess = [
   {
@@ -46,6 +46,9 @@ const menuItems = [
 
 export default function HomePage() {
   const [modal, setModal] = useState<string | null>(null);
+  const nomeCompleto = sessionStorage.getItem('cuidaSe:nome') || '';
+  const primeiroNome = nomeCompleto.trim().split(/\s+/)[0] || 'Visitante';
+  const navigate = useNavigate();
 
   return (
     <main className="home-page">
@@ -54,7 +57,9 @@ export default function HomePage() {
         {/* Cabeçalho */}
         <header className="home-header">
           <div>
-            <h1>Olá, Letícia! <span>💛</span></h1>
+            <h1>
+              Olá, {primeiroNome}! <span>💛</span>
+            </h1>
             <p>
               Cuidar de você é um passo
               <br />
@@ -84,7 +89,7 @@ export default function HomePage() {
 
             <button
               className="banner-button"
-              onClick={() => setModal('Sobre a doença')}
+              onClick={() => navigate('/sobre')}
             >
               Saiba mais
             </button>
@@ -100,8 +105,15 @@ export default function HomePage() {
               <button
                 key={title}
                 className="quick-card"
-                onClick={() => setModal(title)}
-              >
+                onClick={() => {
+                  if (title === 'Sobre a doença') {
+                    navigate('/sobre');
+                  } else if (title === 'Exames e rastreamento') {
+                    navigate('/exames');
+                  } else {
+                    setModal(title);
+                  }
+                }}>
                 <span className="quick-icon">
                   <Icon size={27} strokeWidth={1.5} />
                 </span>

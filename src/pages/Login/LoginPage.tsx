@@ -7,6 +7,7 @@ import './LoginPage.css';
 
 export default function LoginPage() {
   const navigate = useNavigate();
+  const [nome, setNome] = useState('');
 
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
@@ -16,10 +17,12 @@ export default function LoginPage() {
   function handleLogin(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    if (!email.trim() || !senha.trim()) {
+    if (!nome.trim() || !email.trim() || !senha.trim()) {
       setErro('Preencha todos os campos para continuar.');
       return;
     }
+
+    sessionStorage.setItem('cuidaSe:nome', nome.trim());
 
     setErro('');
     navigate('/inicio');
@@ -37,6 +40,20 @@ export default function LoginPage() {
         </header>
 
         <form className="login-form" onSubmit={handleLogin}>
+          <div className="login-input">
+            <UserRound size={20} strokeWidth={1.5} />
+
+            <input
+              type="text"
+              placeholder="Seu nome"
+              aria-label="Seu nome"
+              autoComplete="name"
+              maxLength={60}
+              value={nome}
+              onChange={(e) => setNome(e.target.value)}
+              required
+            />
+          </div>
 
           <div className="login-input">
             <UserRound size={20} strokeWidth={1.5} />
