@@ -1,0 +1,412 @@
+/* CUIDA-SE | FREQUÊNCIA DE RASTREAMENTO */
+
+.frequencia-page {
+  width: 100%;
+  min-height: 100dvh;
+  background: #fff7f2;
+  color: #392d29;
+}
+
+.frequencia-container {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding: clamp(1rem, 3vw, 2rem) var(--page-gutter, 1rem) 4rem;
+}
+
+/* Cabeçalho */
+.frequencia-header {
+  display: grid;
+  grid-template-columns: 2.75rem minmax(0, 1fr) 2.75rem;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.frequencia-header h1 {
+  min-width: 0;
+  font-size: clamp(1.1rem, 3vw, 1.875rem);
+  line-height: 1.3;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.frequencia-back {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: #f6e5df;
+  color: #654740;
+  text-decoration: none;
+}
+
+/* Abertura — imagem opcional */
+.frequencia-hero {
+  display: grid;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2rem);
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  border-radius: var(--radius-card, 1.25rem);
+  background: #f5e4df;
+  margin-bottom: 1.5rem;
+}
+
+.frequencia-hero-content {
+  min-width: 0;
+}
+
+.frequencia-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #99626b;
+  margin-bottom: 0.7rem;
+}
+
+.frequencia-hero h2 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.55rem, 4vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: #4b362e;
+  margin-bottom: 0.7rem;
+}
+
+.frequencia-hero p {
+  font-size: clamp(0.9rem, 1.4vw, 1rem);
+  line-height: 1.7;
+  color: #6e544c;
+}
+
+.frequencia-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+}
+
+/* Resumo e formulário */
+.frequencia-resumo,
+.frequencia-form-card {
+  padding: clamp(1.15rem, 4vw, 2rem);
+  margin-bottom: 1.5rem;
+  border: 1px solid #f0e0db;
+  border-radius: var(--radius-card, 1.25rem);
+  background: #fffdfb;
+}
+
+.frequencia-section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.7rem;
+  color: #a86d74;
+}
+
+.frequencia-section-title svg {
+  flex-shrink: 0;
+}
+
+.frequencia-section-title h2 {
+  font-size: clamp(1.2rem, 2.8vw, 1.7rem);
+  line-height: 1.3;
+  color: #493731;
+}
+
+.frequencia-explicacao {
+  font-size: clamp(0.9rem, 1.4vw, 1rem);
+  line-height: 1.7;
+  color: #68554e;
+  margin-bottom: 1.3rem;
+}
+
+.frequencia-resumo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.75rem, 2vw, 1rem);
+}
+
+.frequencia-resumo-card {
+  min-width: 0;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border-radius: 1rem;
+  background: #f9eae5;
+}
+
+.frequencia-resumo-card span {
+  display: block;
+  color: #835b59;
+  font-size: clamp(0.75rem, 1.4vw, 0.9rem);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.frequencia-resumo-card strong {
+  display: block;
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+  line-height: 1.15;
+  color: #9a5f66;
+  margin-bottom: 0.6rem;
+}
+
+.frequencia-resumo-card p,
+.frequencia-resumo-nota {
+  font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+  line-height: 1.6;
+  color: #6e5b55;
+}
+
+.frequencia-resumo-nota {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.frequencia-resumo-nota svg {
+  flex-shrink: 0;
+  color: #ad7279;
+}
+
+/* Campos */
+.frequencia-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.frequencia-fields-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.frequencia-field {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.frequencia-field label,
+.frequencia-situacoes legend {
+  color: #513c36;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.frequencia-field input,
+.frequencia-field select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 3.15rem;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid #e4d4cf;
+  border-radius: 0.85rem;
+  background: #fffaf8;
+  color: #392d29;
+  font-size: 1rem; /* Evita zoom automático em alguns navegadores móveis */
+}
+
+.frequencia-field input:focus-visible,
+.frequencia-field select:focus-visible {
+  border-color: #b8797b;
+  outline-offset: 2px;
+}
+
+.frequencia-situacoes {
+  min-width: 0;
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid #ecdcd6;
+  border-radius: 1rem;
+}
+
+.frequencia-situacoes legend {
+  padding-inline: 0.3rem;
+}
+
+.frequencia-situacoes > p {
+  margin-bottom: 0.85rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #7b6560;
+}
+
+.frequencia-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding-block: 0.6rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #55413b;
+  cursor: pointer;
+}
+
+.frequencia-check input {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-top: 0.15rem;
+  accent-color: #b8797b;
+  flex-shrink: 0;
+}
+
+.frequencia-check span {
+  min-width: 0;
+}
+
+.frequencia-submit {
+  width: 100%;
+  min-height: 3.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 1rem;
+  background: #b8797b;
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.frequencia-submit:hover {
+  background: #a9676a;
+}
+
+.frequencia-erro {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #a34d56;
+}
+
+/* Resultado */
+.frequencia-resultado {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border: 1px solid #e8cfc9;
+  border-radius: 1rem;
+  background: #fbefec;
+}
+
+.frequencia-resultado-title {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  color: #a2646c;
+}
+
+.frequencia-resultado-title svg {
+  flex-shrink: 0;
+}
+
+.frequencia-resultado-title h3 {
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  line-height: 1.35;
+  color: #594039;
+}
+
+.frequencia-resultado p {
+  font-size: clamp(0.875rem, 1.3vw, 1rem);
+  line-height: 1.7;
+  color: #594841;
+}
+
+.frequencia-resultado small {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: #76645d;
+}
+
+.frequencia-resultado--atencao {
+  border-color: #e9c7c0;
+  background: #fae8e3;
+}
+
+.frequencia-resultado--rotina {
+  border-color: #e6d4c9;
+  background: #f9ede6;
+}
+
+/* Fontes */
+.frequencia-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: 0.5rem 0.25rem;
+}
+
+.frequencia-footer p {
+  max-width: 56rem;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: #76645d;
+}
+
+.frequencia-footer h3 {
+  margin-top: 0.3rem;
+  font-size: 0.95rem;
+}
+
+.frequencia-footer a {
+  width: fit-content;
+  max-width: 100%;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #a5676e;
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+}
+
+/* Celulares muito estreitos */
+@media (max-width: 360px) {
+  .frequencia-resumo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .frequencia-hero,
+  .frequencia-resumo,
+  .frequencia-form-card {
+    padding: 1rem;
+  }
+}
+
+/* Tablets e desktop */
+@media (min-width: 768px) {
+  .frequencia-header {
+    grid-template-columns: 3rem minmax(0, 1fr) 3rem;
+  }
+
+  .frequencia-hero--imagem {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 42%);
+  }
+
+  .frequencia-fields-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Acessibilidade */
+.frequencia-back:focus-visible,
+.frequencia-submit:focus-visible,
+.frequencia-footer a:focus-visible {
+  outline: 3px solid #b8797b;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .frequencia-submit {
+    transition: none;
+  }
+}

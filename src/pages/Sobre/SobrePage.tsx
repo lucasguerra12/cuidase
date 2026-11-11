@@ -1,7 +1,6 @@
 
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import {
   ArrowLeft,
   ShieldCheck,
@@ -22,6 +21,7 @@ export default function SobrePage() {
   const navigate = useNavigate();
 
   const [abaAtiva, setAbaAtiva] = useState<Aba>('oque');
+  const [erroImagem, setErroImagem] = useState(false);
 
   const conteudo = conteudos[abaAtiva];
 
@@ -31,6 +31,7 @@ export default function SobrePage() {
 
         <header className="sobre-header">
           <button
+            type="button"
             className="sobre-back"
             onClick={() => navigate('/inicio')}
             aria-label="Voltar ao início"
@@ -62,11 +63,22 @@ export default function SobrePage() {
           ))}
         </nav>
 
-        <section className="sobre-illustration">
-          <img
-            src={ilustracaoUtero}
-            alt="Ilustração educativa do útero, colo do útero e ovários"
-          />
+        <section
+          className="sobre-illustration"
+          aria-label="Ilustração anatômica educativa"
+        >
+          {erroImagem ? (
+            <p className="sobre-image-error" role="alert">
+              Não foi possível carregar a ilustração.
+              Verifique o arquivo utero-educativo.jpeg.
+            </p>
+          ) : (
+            <img
+              src={ilustracaoUtero}
+              alt="Ilustração educativa do útero, colo do útero e ovários"
+              onError={() => setErroImagem(true)}
+            />
+          )}
         </section>
 
         <article className="sobre-card">
@@ -86,7 +98,6 @@ export default function SobrePage() {
 
           <aside className="sobre-highlight">
             <ShieldCheck size={23} />
-
             <p>{conteudo.destaque}</p>
           </aside>
         </article>

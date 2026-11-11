@@ -6,43 +6,22 @@ import {
   Syringe,
   MessageCircleQuestion,
   CalendarDays,
-  House,
-  MessageCircle,
-  BookOpen,
-  UserRound,
   ChevronRight,
   X,
 } from 'lucide-react';
 
-import './HomePage.css';
 import { useNavigate } from 'react-router-dom';
+import BottomNavigation from '../../components/BottomNavigation/BottomNavigation';
+import './HomePage.css';
 
 const quickAccess = [
-  {
-    title: 'Sobre a doença',
-    Icon: HeartPulse,
-  },
-  {
-    title: 'Exames e rastreamento',
-    Icon: ClipboardCheck,
-  },
-  {
-    title: 'Vacina HPV',
-    Icon: Syringe,
-  },
-  {
-    title: 'Tire suas dúvidas',
-    Icon: MessageCircleQuestion,
-  },
+  { title: 'Sobre a doença', Icon: HeartPulse },
+  { title: 'Exames e rastreamento', Icon: ClipboardCheck },
+  { title: 'Vacina HPV', Icon: Syringe },
+  { title: 'Tire suas dúvidas', Icon: MessageCircleQuestion },
 ];
 
-const menuItems = [
-  { title: 'Início', Icon: House },
-  { title: 'Agenda', Icon: CalendarDays },
-  { title: 'Chat', Icon: MessageCircle },
-  { title: 'Conteúdo', Icon: BookOpen },
-  { title: 'Perfil', Icon: UserRound },
-];
+
 
 export default function HomePage() {
   const [modal, setModal] = useState<string | null>(null);
@@ -53,7 +32,6 @@ export default function HomePage() {
   return (
     <main className="home-page">
       <div className="home-container">
-
         {/* Cabeçalho */}
         <header className="home-header">
           <div>
@@ -68,6 +46,7 @@ export default function HomePage() {
           </div>
 
           <button
+            type="button"
             className="notification-button"
             aria-label="Notificações"
             onClick={() => setModal('Notificações')}
@@ -88,6 +67,7 @@ export default function HomePage() {
             </h2>
 
             <button
+              type="button"
               className="banner-button"
               onClick={() => navigate('/sobre')}
             >
@@ -103,6 +83,7 @@ export default function HomePage() {
           <div className="quick-grid">
             {quickAccess.map(({ title, Icon }) => (
               <button
+                type="button"
                 key={title}
                 className="quick-card"
                 onClick={() => {
@@ -110,14 +91,18 @@ export default function HomePage() {
                     navigate('/sobre');
                   } else if (title === 'Exames e rastreamento') {
                     navigate('/exames');
+                  } else if (title === 'Vacina HPV') {
+                    navigate('/vacina-hpv');
+                  } else if (title === 'Tire suas dúvidas') {
+                    navigate('/duvidas');
                   } else {
                     setModal(title);
                   }
-                }}>
+                }}
+              >
                 <span className="quick-icon">
                   <Icon size={27} strokeWidth={1.5} />
                 </span>
-
                 <span className="quick-label">{title}</span>
               </button>
             ))}
@@ -127,42 +112,26 @@ export default function HomePage() {
         {/* Acompanhamento */}
         <section className="health-section">
           <button
+            type="button"
             className="health-card"
-            onClick={() => setModal('Meu acompanhamento')}
+            onClick={() => navigate('/agenda')}
           >
             <div className="health-icon">
               <CalendarDays size={32} strokeWidth={1.5} />
             </div>
-
             <div className="health-content">
               <h3>Sua saúde em dia</h3>
               <p>Acompanhe seus exames, consultas e lembretes.</p>
             </div>
-
             <ChevronRight size={22} strokeWidth={1.5} />
           </button>
         </section>
       </div>
 
-      {/* Navegação inferior */}
-      <nav className="bottom-navigation" aria-label="Menu principal">
-        <div className="bottom-navigation-content">
-          {menuItems.map(({ title, Icon }) => (
-            <button
-              key={title}
-              className={`nav-item ${title === 'Início' ? 'active' : ''}`}
-              onClick={() => {
-                if (title !== 'Início') setModal(title);
-              }}
-            >
-              <Icon size={21} strokeWidth={1.7} />
-              <span>{title}</span>
-            </button>
-          ))}
-        </div>
-      </nav>
+      {/* Menu compartilhado entre Início e Agenda */}
+      <BottomNavigation />
 
-      {/* Aviso temporário */}
+      {/* Aviso temporário para funcionalidades futuras */}
       {modal && (
         <div className="modal-overlay">
           <div
@@ -172,6 +141,7 @@ export default function HomePage() {
             aria-labelledby="modal-title"
           >
             <button
+              type="button"
               className="modal-close"
               onClick={() => setModal(null)}
               aria-label="Fechar"
@@ -180,14 +150,13 @@ export default function HomePage() {
             </button>
 
             <HeartPulse size={36} color="#b8797b" />
-
             <h2 id="modal-title">{modal}</h2>
             <p>
               Essa funcionalidade será desenvolvida
               nas próximas etapas do Cuida-se.
             </p>
-
             <button
+              type="button"
               className="modal-button"
               onClick={() => setModal(null)}
             >
