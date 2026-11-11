@@ -7,7 +7,6 @@ import {
   Copy,
   Heart,
   Info,
-  MessageCircle,
   Search,
   Send,
   UserRound,
